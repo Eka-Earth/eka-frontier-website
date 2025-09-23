@@ -11,13 +11,13 @@
     {
       title: "Regenerative Agriculture & Food Systems",
       bullets: ["Sustainable farming technology", "Supply chain transparency", "Smallholder finance", "Food security platforms"],
-      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>`,
+      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>`,
       metrics: "500M farmers"
     },
     {
       title: "Nature-based Solutions & dMRV",
       bullets: ["Carbon credit infrastructure", "Biodiversity markets", "Ecosystem services", "Digital measurement, reporting & verification"],
-      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`,
+      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
       metrics: "$1T market"
     },
     {
@@ -44,7 +44,7 @@
       <div class="inline-block mb-6">
         <span class="text-sm font-mono text-gray-400 tracking-wider uppercase">[ Thematic Focus ]</span>
       </div>
-      <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Four Pillars of Regenerative Transformation</h2>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Where Digital Innovations Drive Impact at Scale</h2>
       <p class="text-xl text-gray-300 max-w-4xl mx-auto">We partner with forward-thinking organizations across core areas of regenerative innovation</p>
     </div>
 

@@ -40,17 +40,19 @@
           </span>
         </a>
 
-        <button
-          class="group px-10 py-5 border-2 border-white/80 text-white font-bold text-lg rounded-xl hover:bg-white/10 hover:border-white transition-all duration-300 transform hover:scale-105"
-          on:click={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+        <a
+          href="https://calendly.com/ekafrontier/discovery"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-block px-10 py-5 border-2 border-white/80 text-white font-bold text-lg rounded-xl hover:bg-white/10 hover:border-white transition-all duration-300 transform hover:scale-105"
         >
           <span class="flex items-center justify-center">
-            Explore Services
-            <svg class="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            Book Discovery Call
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
             </svg>
           </span>
-        </button>
+        </a>
       </div>
 
       <div class="mt-20 pt-12 border-t border-white/20">
@@ -71,7 +73,7 @@
 
         <div class="mt-12 text-center">
           <p class="text-sm text-gray-500">
-            © 2025 Eka Frontier • Forging Digital Infrastructure for a Resilient Regenerative Economy
+            © 2025 Eka Frontier • Forging Digital Infrastructures for Resilient Futures
           </p>
         </div>
       </div>

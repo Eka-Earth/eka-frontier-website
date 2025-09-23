@@ -62,8 +62,8 @@
       <h2 class="text-5xl lg:text-6xl font-bold text-white mb-4">
         Build. Grow. Scale.
       </h2>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-        Three integrated capabilities forging pathways to regenerative scale at the frontier of innovation.
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Three integrated capabilities forging pathways to regenerative scale at the frontier of innovation. We partner with mission-aligned organizations — from ambitious startups to forward-thinking institutions — building infrastructure designed to thrive through market cycles while catalyzing regenerative transformation.
       </p>
     </div>
 
@@ -108,9 +108,9 @@
               <span class="text-sm font-mono mr-2">
                 {activeService === service.id ? '[-]' : '[+]'}
               </span>
-              <span class="text-sm">
-                {activeService === service.id ? 'Collapse' : 'Learn more'}
-              </span>
+              {#if activeService !== service.id}
+                <span class="text-sm">Learn more</span>
+              {/if}
             </div>
           </div>
         </button>
@@ -146,12 +146,6 @@
       {/each}
     {/if}
 
-    <!-- Partnership note -->
-    <div class="mt-16 text-center">
-      <p class="text-gray-400 max-w-3xl mx-auto leading-relaxed">
-        We partner with mission-aligned organizations — from ambitious startups to forward-thinking institutions — building infrastructure designed to thrive through market cycles while catalyzing regenerative transformation.
-      </p>
-    </div>
   </div>
 </section>
 

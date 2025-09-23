@@ -25,13 +25,13 @@
       </div>
 
       <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight">
-        <span class="text-white">Forging Digital Infrastructure</span>
+        <span class="text-white">Forging Digital Infrastructures</span>
         <br />
-        <span class="text-white">for a Resilient Regenerative Economy</span>
+        <span class="text-white">for Resilient Futures</span>
       </h1>
 
       <p class="text-lg md:text-xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        Architecting transformative platforms that power the transition to a nature-positive, low-carbon future at unprecedented speed and scale
+        Your co-pilot in architecting and building transformative platforms that power the transition to a nature-positive, low-carbon future at speed and at scale
       </p>
     </div>
 
