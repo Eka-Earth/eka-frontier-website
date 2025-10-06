@@ -61,11 +61,12 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="flex justify-between items-center py-3">
       <!-- Logo -->
-      <button class="flex items-center space-x-2 relative z-[60]" on:click={goHome}>
-        <div class="w-2 h-8 bg-eka-primary rounded"></div>
-        <div class="text-2xl font-bold {scrolled || isOpen ? 'text-eka-primary-dark' : 'text-white'} hover:text-eka-primary transition-colors">
-          Eka Frontier
-        </div>
+      <button class="flex items-center relative z-[60]" on:click={goHome}>
+        {#if scrolled || isOpen}
+          <img src="/logos/color-logo.svg" alt="Eka Frontier" class="h-8 w-auto">
+        {:else}
+          <img src="/logos/white-logo.svg" alt="Eka Frontier" class="h-8 w-auto">
+        {/if}
       </button>
 
       <!-- Menu Button (always visible) -->
