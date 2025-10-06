@@ -27,7 +27,7 @@
         <div class="space-y-4 mb-8">
           {#each thesisPoints as point}
             <div class="flex items-start">
-              <span class="text-eka-blue mr-3 mt-1">→</span>
+              <span class="text-eka-primary mr-3 mt-1">→</span>
               <p class="text-white">{point}</p>
             </div>
           {/each}

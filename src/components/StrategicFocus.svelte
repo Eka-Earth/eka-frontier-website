@@ -36,7 +36,7 @@
 
     <div class="grid md:grid-cols-2 gap-6">
       {#each focusAreas as area}
-        <div class="bg-white p-6 rounded-xl border-l-4 border-eka-blue hover:shadow-lg transition-shadow">
+        <div class="bg-white p-6 rounded-xl border-l-4 border-eka-primary hover:shadow-lg transition-shadow">
           <h3 class="font-bold text-lg text-eka-black mb-2">{area.title}</h3>
           <p class="text-gray-600">{area.description}</p>
         </div>

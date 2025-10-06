@@ -13,95 +13,132 @@
 
   function toggleMenu() {
     isOpen = !isOpen;
+    // Prevent body scroll when menu is open
+    if (!isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 
   function scrollToSection(id) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    // Close menu first
     isOpen = false;
+    document.body.style.overflow = 'auto';
+
+    // If we're on privacy policy page, go home first
+    if (window.location.hash === '#privacy-policy') {
+      window.dispatchEvent(new CustomEvent('navigate-home'));
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
   }
+
+  function goHome() {
+    isOpen = false;
+    document.body.style.overflow = 'auto';
+
+    if (window.location.hash === '#privacy-policy') {
+      window.dispatchEvent(new CustomEvent('navigate-home'));
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  const navItems = [
+    { label: 'Our Edge', id: 'our-edge' },
+    { label: 'Our Solutions', id: 'services' },
+    { label: 'Our Focus', id: 'themes' },
+    { label: 'How We Work', id: 'engagement' },
+    { label: 'Work Together', id: 'contact' }
+  ];
 </script>
 
-<nav class="fixed top-0 w-full z-50 transition-all duration-300 {scrolled ? 'backdrop-blur-lg bg-black/80 border-b border-white/10' : 'bg-transparent'}">
+<nav class="fixed top-0 w-full z-50 transition-all duration-300 {scrolled ? 'bg-white/95 backdrop-blur-lg shadow-sm' : 'bg-transparent'}">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="flex justify-between items-center py-5">
-      <div class="flex items-center space-x-2">
-        <div class="w-2 h-8 bg-eka-blue rounded"></div>
-        <div class="text-2xl font-bold text-white">
+    <div class="flex justify-between items-center py-3">
+      <!-- Logo -->
+      <button class="flex items-center space-x-2 relative z-[60]" on:click={goHome}>
+        <div class="w-2 h-8 bg-eka-primary rounded"></div>
+        <div class="text-2xl font-bold {scrolled || isOpen ? 'text-eka-primary-dark' : 'text-white'} hover:text-eka-primary transition-colors">
           Eka Frontier
         </div>
-      </div>
-
-      <button
-        class="lg:hidden text-white"
-        on:click={toggleMenu}
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          {#if isOpen}
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          {:else}
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          {/if}
-        </svg>
       </button>
 
-      <div class="hidden lg:flex items-center space-x-8">
-        <button
-          on:click={() => scrollToSection('services')}
-          class="text-gray-300 hover:text-white transition font-medium text-sm tracking-wide relative group"
-        >
-          Services
-          <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-eka-blue group-hover:w-full transition-all duration-300"></div>
-        </button>
-        <button
-          on:click={() => scrollToSection('themes')}
-          class="text-gray-300 hover:text-white transition font-medium text-sm tracking-wide relative group"
-        >
-          Focus
-          <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-eka-blue group-hover:w-full transition-all duration-300"></div>
-        </button>
-        <button
-          on:click={() => scrollToSection('engagement')}
-          class="text-gray-300 hover:text-white transition font-medium text-sm tracking-wide relative group"
-        >
-          Engagement
-          <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-eka-blue group-hover:w-full transition-all duration-300"></div>
-        </button>
-        <button
-          on:click={() => scrollToSection('contact')}
-          class="px-6 py-2 bg-eka-blue text-white font-medium text-sm rounded-lg hover:bg-eka-blue-dark transition-colors duration-300"
-        >
-          Get Started
-        </button>
+      <!-- Menu Button (always visible) -->
+      <button
+        class="relative z-[60] p-2"
+        on:click={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <div class="w-8 h-6 relative flex flex-col justify-center">
+          <span class="absolute w-full h-0.5 {scrolled || isOpen ? 'bg-eka-primary-dark' : 'bg-white'} transition-all duration-300 {isOpen ? 'rotate-45 top-[11px]' : 'top-1'}"></span>
+          <span class="absolute w-full h-0.5 {scrolled || isOpen ? 'bg-eka-primary-dark' : 'bg-white'} transition-all duration-300 {isOpen ? 'opacity-0' : 'top-[11px]'}"></span>
+          <span class="absolute w-full h-0.5 {scrolled || isOpen ? 'bg-eka-primary-dark' : 'bg-white'} transition-all duration-300 {isOpen ? '-rotate-45 top-[11px]' : 'top-5'}"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Full Screen Menu Overlay -->
+  {#if isOpen}
+    <div class="fixed inset-0 bg-white z-[55] animate-fade-in">
+      <div class="flex flex-col justify-center items-start h-full max-w-7xl mx-auto px-12 lg:px-24">
+        <div class="space-y-8">
+          {#each navItems as item, index}
+            <button
+              on:click={() => scrollToSection(item.id)}
+              class="block text-left text-4xl lg:text-5xl font-medium text-eka-primary-dark hover:text-eka-primary transition-all duration-300 hover:translate-x-2 animate-slide-up"
+              style="animation-delay: {index * 0.1}s"
+            >
+              {item.label}
+            </button>
+          {/each}
+
+          <div class="pt-8 mt-8 border-t border-gray-200 animate-slide-up" style="animation-delay: 0.5s">
+            <a
+              href="mailto:contact@ekafrontier.io"
+              class="text-lg text-gray-600 hover:text-eka-primary transition-colors"
+            >
+              contact@ekafrontier.io
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-
-    {#if isOpen}
-      <div class="lg:hidden py-6 space-y-4 border-t border-white/10">
-        <button
-          on:click={() => scrollToSection('services')}
-          class="block w-full text-left py-3 text-gray-300 hover:text-white transition font-medium"
-        >
-          Services
-        </button>
-        <button
-          on:click={() => scrollToSection('themes')}
-          class="block w-full text-left py-3 text-gray-300 hover:text-white transition font-medium"
-        >
-          Focus
-        </button>
-        <button
-          on:click={() => scrollToSection('engagement')}
-          class="block w-full text-left py-3 text-gray-300 hover:text-white transition font-medium"
-        >
-          Engagement
-        </button>
-        <button
-          on:click={() => scrollToSection('contact')}
-          class="block w-full text-left py-3 text-white font-medium"
-        >
-          Get Started →
-        </button>
-      </div>
-    {/if}
-  </div>
+  {/if}
 </nav>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+    animation-fill-mode: backwards;
+  }
+</style>

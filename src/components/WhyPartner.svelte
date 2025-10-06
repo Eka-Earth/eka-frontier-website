@@ -45,7 +45,7 @@
         <div class="grid md:grid-cols-2 gap-4">
           {#each trackRecord as item}
             <div class="flex items-start">
-              <span class="text-eka-blue mr-3 mt-1">✓</span>
+              <span class="text-eka-primary mr-3 mt-1">✓</span>
               <p class="text-gray-700 text-sm">{item}</p>
             </div>
           {/each}
@@ -57,7 +57,7 @@
         <div class="grid md:grid-cols-2 gap-4">
           {#each technicalExcellence as item}
             <div class="flex items-start">
-              <span class="text-eka-blue mr-3 mt-1">✓</span>
+              <span class="text-eka-primary mr-3 mt-1">✓</span>
               <p class="text-gray-700 text-sm">{item}</p>
             </div>
           {/each}
@@ -69,7 +69,7 @@
         <div class="grid md:grid-cols-2 gap-4">
           {#each marketLeadership as item}
             <div class="flex items-start">
-              <span class="text-eka-blue mr-3 mt-1">✓</span>
+              <span class="text-eka-primary mr-3 mt-1">✓</span>
               <p class="text-gray-700 text-sm">{item}</p>
             </div>
           {/each}

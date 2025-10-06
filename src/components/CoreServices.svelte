@@ -1,167 +1,119 @@
 <script>
-  let activeService = null;
+  let hoveredCard = null;
 
   const services = [
     {
       id: 'build',
-      title: 'BUILD',
-      subtitle: 'Digital Platform Development',
-      shortDesc: "Architect tomorrow's infrastructure today",
-      description: 'From concept to deployment, we build transformative digital platforms that redefine markets.',
-      capabilities: [
-        'Carbon platforms with satellite-verified dMRV',
-        'Renewable energy infrastructure design',
-        'Supply chain transparency solutions',
-        'Nature-based tokenization frameworks'
+      action: 'BUILD',
+      expertise: 'Venture Architecture & Engineering',
+      title: 'Business Design and Platform Engineering',
+      description: 'From business to technical architecture, we partner with visionary teams to design and build resilient digital market and financial infrastructure. We structure commercial frameworks, design product strategies, and engineer secure platforms — creating institutional-grade foundations where strategy and technology align seamlessly to power impact at scale.',
+      highlights: [
+        'Digital finance infrastructure',
+        'Market platforms and exchanges',
+        'Data and verification protocols'
       ]
     },
     {
-      id: 'grow',
-      title: 'GROW',
-      subtitle: 'Strategic Growth & Expansion',
-      shortDesc: 'Scale at the speed of frontier markets',
-      description: 'Strategic advisory and hands-on leadership to accelerate growth across emerging economies.',
-      capabilities: [
-        'Transformative partnership structuring',
-        'Market expansion playbooks',
-        'Revenue model optimization',
-        'Regulatory navigation frameworks'
-      ]
-    },
-    {
-      id: 'scale',
-      title: 'SCALE',
-      subtitle: 'Investment & Capital Strategy',
-      shortDesc: 'Structure for institutional scale',
-      description: 'Engineer capital structures and token economies that align long-term value creation.',
-      capabilities: [
-        'Institutional investment positioning',
-        'Token economy design',
-        'Blended finance structuring',
-        'Capital strategy development'
+      id: 'grow-scale',
+      action: 'GROW & SCALE',
+      expertise: 'Strategy & Operations',
+      title: 'Growth Architecture and Scaling Systems',
+      description: 'We accelerate the journey from early traction to market leadership with strategic and operational precision. Whether organisations are finding product-market fit or expanding into new markets, we bring market intelligence, tailored strategies, and adaptive systems — orchestrating partnerships, optimising positioning, and building the infrastructure to power growth at every stage.',
+      highlights: [
+        'Partnership ecosystem development',
+        'Growth and operational systems',
+        'Market entry and expansion'
       ]
     }
   ];
-
-  function toggleService(id) {
-    activeService = activeService === id ? null : id;
-  }
 </script>
 
-<section id="services" class="relative py-20 bg-black overflow-hidden">
-  <!-- Background tech grid -->
+<section id="services" class="relative py-24 bg-eka-deep overflow-hidden">
+  <!-- Background pattern -->
   <div class="absolute inset-0 opacity-10">
-    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(27, 79, 143, 0.3) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="absolute inset-0" style="
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+    "></div>
   </div>
 
   <div class="relative z-10 container-width section-padding">
     <div class="text-center mb-16">
       <div class="inline-block mb-6">
-        <span class="text-sm font-mono text-gray-400 tracking-wider uppercase">[ Core Services ]</span>
+        <span class="text-sm font-mono text-gray-400 tracking-wider uppercase">[ Our Solutions ]</span>
       </div>
-      <h2 class="text-5xl lg:text-6xl font-bold text-white mb-4">
-        Build. Grow. Scale.
+      <h2 class="text-5xl lg:text-6xl font-bold text-white mb-6">
+        Build. Grow & Scale.
       </h2>
       <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        Three integrated capabilities forging pathways to regenerative scale at the frontier of innovation. We partner with mission-aligned organizations — from ambitious startups to forward-thinking institutions — building infrastructure designed to thrive through market cycles while catalyzing regenerative transformation.
+        Combining strategic expertise with operational and technical capabilities, we partner with next-gen companies to architect and scale transformative market infrastructure.
       </p>
     </div>
 
-    <!-- Main service cards -->
-    <div class="grid lg:grid-cols-3 gap-6 mb-12">
-      {#each services as service}
-        <button
-          class="group relative bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-gray-600 transition-all duration-500 text-left cursor-pointer {activeService === service.id ? 'ring-2 ring-white/30' : ''}"
-          on:click={() => toggleService(service.id)}
+    <!-- Service cards grid -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      {#each services as service, index}
+        <div class="group relative"
+          on:mouseenter={() => hoveredCard = index}
+          on:mouseleave={() => hoveredCard = null}
         >
-          <div class="relative z-10">
-            <!-- Icon -->
-            <div class="mb-6 inline-block p-3 bg-eka-blue rounded-xl">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {#if service.id === 'build'}
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                {:else if service.id === 'grow'}
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                {:else}
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                {/if}
-              </svg>
-            </div>
+          <div class="bg-eka-navy/50 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500 overflow-hidden h-full">
+            <div class="p-10 flex flex-col h-full">
+              <!-- Icon with larger size and better spacing -->
+              <div class="mb-6">
+                <!-- Large icon like engagement cards -->
+                <div class="mb-6 inline-block">
+                  <div class="p-4 bg-eka-primary rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {#if service.id === 'build'}
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                      {:else}
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                      {/if}
+                    </svg>
+                  </div>
+                </div>
 
-            <!-- Title -->
-            <h3 class="text-3xl font-bold text-white mb-2 group-hover:text-eka-blue transition-colors duration-300">
-              {service.title}
-            </h3>
+                <h3 class="text-3xl font-bold text-white mb-3 group-hover:text-eka-sage transition-all duration-300">
+                  {service.action}
+                </h3>
 
-            <!-- Subtitle -->
-            <p class="text-sm text-gray-400 mb-4 font-medium">
-              {service.subtitle}
-            </p>
+                <!-- Expertise badge -->
+                <div class="inline-block px-3 py-1.5 bg-white/10 border border-white/20 rounded-full mb-6">
+                  <p class="text-xs font-mono text-white">{service.expertise}</p>
+                </div>
+              </div>
 
-            <!-- Short description -->
-            <p class="text-gray-300 leading-relaxed">
-              {service.shortDesc}
-            </p>
+              <!-- Description -->
+              <p class="text-gray-300 leading-relaxed mb-6">
+                {service.description}
+              </p>
 
-            <!-- Expand indicator -->
-            <div class="mt-6 flex items-center text-gray-400 group-hover:text-white transition-colors">
-              <span class="text-sm font-mono mr-2">
-                {activeService === service.id ? '[-]' : '[+]'}
-              </span>
-              {#if activeService !== service.id}
-                <span class="text-sm">Learn more</span>
-              {/if}
+              <!-- Highlights - visible on hover -->
+              <div class="space-y-2 {hoveredCard === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500">
+                {#each service.highlights as highlight}
+                  <div class="flex items-center">
+                    <div class="w-1.5 h-1.5 bg-eka-primary rounded-full mr-2"></div>
+                    <span class="text-sm text-gray-400">{highlight}</span>
+                  </div>
+                {/each}
+              </div>
             </div>
           </div>
-        </button>
+        </div>
       {/each}
     </div>
 
-    <!-- Expanded content -->
-    {#if activeService}
-      {#each services as service}
-        {#if service.id === activeService}
-          <div class="animate-slide-down bg-gray-900/50 backdrop-blur-lg rounded-2xl border border-gray-800 p-10">
-            <div class="grid lg:grid-cols-2 gap-10">
-              <div>
-                <h4 class="text-2xl font-bold text-white mb-4">{service.subtitle}</h4>
-                <p class="text-gray-300 leading-relaxed text-lg mb-6">
-                  {service.description}
-                </p>
-              </div>
-              <div>
-                <h5 class="text-sm font-mono text-gray-400 uppercase mb-4">Key Capabilities</h5>
-                <ul class="space-y-3">
-                  {#each service.capabilities as capability}
-                    <li class="flex items-start">
-                      <div class="mt-1 mr-3 w-1 h-1 bg-eka-blue rounded-full"></div>
-                      <span class="text-gray-300">{capability}</span>
-                    </li>
-                  {/each}
-                </ul>
-              </div>
-            </div>
-          </div>
-        {/if}
-      {/each}
-    {/if}
-
+    <!-- Call to action -->
+    <div class="mt-20 flex justify-center">
+      <button
+        class="px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
+        on:click={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+      >
+        Let's Explore Partnership
+      </button>
+    </div>
   </div>
 </section>
-
-<style>
-  @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-slide-down {
-    animation: slide-down 0.5s ease-out;
-  }
-</style>
