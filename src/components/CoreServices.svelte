@@ -93,7 +93,7 @@
 
         {#snippet highlights()}
           <div
-            class="space-y-2 {hoveredCard === index
+            class="service-highlights space-y-2 {hoveredCard === index
               ? 'opacity-100'
               : 'opacity-0'} transition-opacity duration-500"
           >
@@ -120,3 +120,12 @@
     </Button>
   </div>
 </SectionContainer>
+
+<style>
+  /* Progressive disclosure: always show highlights on touch devices */
+  @media (hover: none) {
+    .service-highlights {
+      opacity: 1 !important;
+    }
+  }
+</style>

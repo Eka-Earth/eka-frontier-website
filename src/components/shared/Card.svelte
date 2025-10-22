@@ -53,8 +53,8 @@
 
   const bgClasses = $derived(
     theme === 'dark'
-      ? 'bg-eka-navy/50 backdrop-blur-sm border-white/10 hover:border-white/30'
-      : 'bg-white border-gray-200 hover:border-eka-primary/30'
+      ? 'bg-eka-navy/50 backdrop-blur-sm border-white/10 hover:border-white/30 active:border-white/40'
+      : 'bg-white border-gray-200 hover:border-eka-primary/30 active:border-eka-primary/40'
   )
 
   const iconBgClasses = {
@@ -77,14 +77,14 @@
     // Determine shadow size
     const effectiveShadow = shadowSize ?? (hoverable ? 'xl' : 'none')
     if (effectiveShadow === 'xl') {
-      classes.push('hover:shadow-xl')
+      classes.push('hover:shadow-xl active:shadow-lg')
     } else if (effectiveShadow === '2xl') {
-      classes.push('hover:shadow-2xl')
+      classes.push('hover:shadow-2xl active:shadow-xl')
     }
 
-    // Add cursor-pointer only if hoverable
+    // Add cursor-pointer and active scale for tactile feedback
     if (hoverable) {
-      classes.push('cursor-pointer')
+      classes.push('cursor-pointer active:scale-[0.99]')
     }
 
     return classes.join(' ')
@@ -94,7 +94,9 @@
     theme === 'dark' ? 'transition-all duration-500' : 'transition-all duration-300'
   )
 
-  const paddingClasses = $derived(variant === 'service' ? 'p-10' : 'p-8')
+  const paddingClasses = $derived(
+    variant === 'service' ? 'p-6 md:p-8 lg:p-10' : 'p-6 md:p-8'
+  )
 
   const layoutClasses = $derived(variant === 'service' ? 'flex flex-col h-full' : '')
 
@@ -127,7 +129,9 @@
       </div>
 
       {#if description}
-        <div class="{isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300">
+        <div
+          class="card-description {isHovered ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300"
+        >
           {@render description()}
         </div>
       {/if}
@@ -255,5 +259,12 @@
 
   .animate-slide-down {
     animation: slide-down 0.3s ease-out;
+  }
+
+  /* Progressive disclosure: always show description on touch devices */
+  @media (hover: none) {
+    .card-description {
+      opacity: 1 !important;
+    }
   }
 </style>

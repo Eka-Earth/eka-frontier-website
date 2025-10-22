@@ -15,14 +15,14 @@
   const descColor = $derived(theme === 'dark' ? 'text-gray-300' : 'text-gray-700')
 </script>
 
-<div class="{alignClasses} mb-16">
+<div class="{alignClasses} mb-8 md:mb-12 lg:mb-16">
   {#if label}
-    <div class="inline-block mb-6">
+    <div class="inline-block mb-4 md:mb-6">
       <span class="text-sm font-mono {labelColor} tracking-wider uppercase">[ {label} ]</span>
     </div>
   {/if}
 
-  <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold {titleColor} mb-6">
+  <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold {titleColor} mb-4 md:mb-6">
     {title}
   </h2>
 

@@ -23,11 +23,12 @@
   const variantClasses = $derived(
     {
       primary:
-        'bg-eka-primary text-white hover:bg-eka-primary-dark disabled:opacity-50 disabled:cursor-not-allowed',
+        'bg-eka-primary text-white hover:bg-eka-primary-dark active:bg-eka-primary-dark active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
       outline:
-        'border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed',
-      text: 'text-gray-600 hover:text-eka-primary disabled:opacity-50 disabled:cursor-not-allowed',
-      ghost: 'text-white hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed',
+        'border-2 border-white text-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98] backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed',
+      text: 'text-gray-600 hover:text-eka-primary active:text-eka-primary-dark disabled:opacity-50 disabled:cursor-not-allowed',
+      ghost:
+        'text-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
     }[variant]
   )
 

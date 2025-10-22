@@ -27,11 +27,13 @@
 <SectionContainer id="contact" background="gradient" pattern={true}>
   <div class="text-center max-w-4xl mx-auto">
     <div class={mounted ? 'animate-fade-in' : ''}>
-      <h2 class="text-5xl lg:text-6xl font-bold text-eka-primary-dark mb-12 leading-tight">
+      <h2
+        class="text-5xl lg:text-6xl font-bold text-eka-primary-dark mb-8 md:mb-12 leading-tight"
+      >
         {headline} <span class="text-eka-primary">together</span>.
       </h2>
 
-      <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+      <p class="text-lg text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto">
         {description}
       </p>
     </div>
@@ -39,7 +41,7 @@
     <div class="flex justify-center {mounted ? 'animate-slide-up' : ''}">
       <a
         href="mailto:{email}"
-        class="group px-10 py-5 bg-eka-primary text-white font-bold text-lg rounded-xl hover:bg-eka-primary-dark transition-all duration-300 transform hover:scale-105 inline-block"
+        class="group px-8 md:px-10 py-4 md:py-5 bg-eka-primary text-white font-bold text-lg rounded-xl hover:bg-eka-primary-dark active:bg-eka-primary-dark transition-all duration-300 transform hover:scale-105 active:scale-100 inline-block"
       >
         <span class="flex items-center justify-center gap-2">
           {ctaText}

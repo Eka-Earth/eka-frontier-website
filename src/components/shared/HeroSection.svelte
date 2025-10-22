@@ -38,7 +38,7 @@
   })
 </script>
 
-<section class="relative {minHeight} flex items-center justify-center overflow-hidden">
+<section class="relative {minHeight} flex items-center justify-center overflow-hidden scroll-mt-16">
   <!-- Background -->
   {#if backgroundImage}
     <div class="absolute inset-0">
@@ -60,7 +60,7 @@
       <div class={mounted ? 'animate-fade-in' : ''}>
         {#if title || titleHighlight}
           <h1
-            class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-8 leading-tight"
+            class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 md:mb-8 leading-tight"
           >
             {#if title}
               <span class="text-white">{title}</span>
@@ -75,7 +75,7 @@
         {/if}
 
         {#if description}
-          <p class="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8">
+          <p class="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-8">
             {description}
           </p>
         {/if}

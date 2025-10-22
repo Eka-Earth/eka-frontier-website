@@ -33,7 +33,11 @@
   }
 </script>
 
-<section {id} class="relative py-24 {bgClasses[background]} {pattern ? 'overflow-hidden' : ''}">
+<section
+  {id}
+  class="relative py-12 md:py-20 lg:py-24 scroll-mt-16 {bgClasses[background]} {pattern
+    ? 'overflow-hidden'
+    : ''}">
   {#if pattern}
     <!-- Decorative background pattern -->
     <div class="absolute inset-0 {patternOpacity[background]}">

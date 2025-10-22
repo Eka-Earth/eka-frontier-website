@@ -85,7 +85,7 @@
 
           {#snippet highlights()}
             <div
-              class="space-y-2 {hoveredCard === index
+              class="engagement-highlights space-y-2 {hoveredCard === index
                 ? 'opacity-100'
                 : 'opacity-0'} transition-opacity duration-500"
             >
@@ -102,3 +102,12 @@
     </GridLayout>
   </div>
 </SectionContainer>
+
+<style>
+  /* Progressive disclosure: always show highlights on touch devices */
+  @media (hover: none) {
+    .engagement-highlights {
+      opacity: 1 !important;
+    }
+  }
+</style>
