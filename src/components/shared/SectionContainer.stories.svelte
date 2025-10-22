@@ -9,7 +9,7 @@
     argTypes: {
       background: {
         control: 'select',
-        options: ['light', 'dark', 'deep', 'white'],
+        options: ['light', 'dark', 'deep', 'white', 'gradient'],
       },
       pattern: {
         control: 'boolean',
@@ -45,6 +45,17 @@
   </SectionContainer>
 {/snippet}
 
+{#snippet gradientTemplate(args)}
+  <SectionContainer {...args}>
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-eka-primary-dark">Gradient Background Section</h2>
+      <p class="text-gray-700 mt-4">
+        This is a section container with a gradient background from light to mint.
+      </p>
+    </div>
+  </SectionContainer>
+{/snippet}
+
 <Story
   name="Light Background"
   args={{ background: 'light', pattern: false }}
@@ -67,4 +78,16 @@
   name="Deep Background with Pattern"
   args={{ background: 'deep', pattern: true }}
   template={deepTemplate}
+/>
+
+<Story
+  name="Gradient Background"
+  args={{ background: 'gradient', pattern: false }}
+  template={gradientTemplate}
+/>
+
+<Story
+  name="Gradient Background with Pattern"
+  args={{ background: 'gradient', pattern: true }}
+  template={gradientTemplate}
 />

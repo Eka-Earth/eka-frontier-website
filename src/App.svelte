@@ -6,7 +6,11 @@
   import Engagement from './components/Engagement.svelte'
   import ThematicFocus from './components/ThematicFocus.svelte'
   import Contact from './components/Contact.svelte'
+  import Footer from './components/Footer.svelte'
   import PrivacyPolicy from './components/PrivacyPolicy.svelte'
+  import LinkedInIcon from './components/icons/LinkedInIcon.svelte'
+  import type { NavigationLink, SocialLink } from './components/Footer.svelte'
+  import { siteConfig } from './config/site'
 
   type ViewType = 'home' | 'privacy'
   let currentView: ViewType = 'home'
@@ -52,18 +56,53 @@
     window.history.pushState({}, '', '/')
     window.scrollTo(0, 0)
   }
+
+  // Footer navigation links
+  const navigationLinks: NavigationLink[] = [
+    { label: 'Our Edge', sectionId: 'our-edge' },
+    { label: 'Our Solutions', sectionId: 'services' },
+    { label: 'Our Focus', sectionId: 'themes' },
+    { label: 'How We Work', sectionId: 'engagement' },
+    {
+      label: 'Privacy Policy',
+      onClick: () => {
+        window.dispatchEvent(new CustomEvent('navigate-privacy'))
+      },
+    },
+  ]
+
+  // Social media links
+  const socialLinks: SocialLink[] = [
+    {
+      label: 'LinkedIn',
+      href: siteConfig.social.linkedin,
+      icon: LinkedInIcon,
+    },
+  ]
 </script>
 
 <Navigation />
 <main class="bg-white">
   {#if currentView === 'privacy'}
     <PrivacyPolicy />
+    <Footer
+      {navigationLinks}
+      {socialLinks}
+      email={siteConfig.contact.email}
+      copyright="© {siteConfig.company.copyrightYear} {siteConfig.company.name}"
+    />
   {:else}
     <Hero />
     <OurEdge />
     <CoreServices />
     <ThematicFocus />
     <Engagement />
-    <Contact />
+    <Contact email={siteConfig.contact.email} />
+    <Footer
+      {navigationLinks}
+      {socialLinks}
+      email={siteConfig.contact.email}
+      copyright="© {siteConfig.company.copyrightYear} {siteConfig.company.name}"
+    />
   {/if}
 </main>

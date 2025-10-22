@@ -109,7 +109,8 @@ Components are rendered in this specific sequence in App.svelte:
 3. **CoreServices** - Two main service areas (BUILD, GROW & SCALE)
 4. **ThematicFocus** - Four thematic focus areas with expandable content
 5. **Engagement** - Three engagement models/pathways
-6. **Contact** - Contact form and footer
+6. **Contact** - CTA section with email contact button
+7. **Footer** - Configurable footer with navigation links, social media, and copyright
 
 ### Routing & Navigation
 
@@ -160,6 +161,29 @@ Components are rendered in this specific sequence in App.svelte:
 - Recent content updates and implementation notes
 
 When updating website content, always reference WEBSITE_COPY.md first to ensure consistency with the approved copy and messaging strategy.
+
+### Configuration Management
+
+**Environment Variables** (`.env` file):
+
+The application uses Vite's environment variable system for configuration. All environment variables must be prefixed with `VITE_` to be exposed to the client:
+
+- `VITE_CONTACT_EMAIL` - Contact email address (default: `contact@ekafrontier.io`)
+- `VITE_LINKEDIN_URL` - LinkedIn company URL (default: `https://linkedin.com/company/ekafrontier`)
+- `VITE_COMPANY_NAME` - Company name for copyright (default: `Eka Frontier`)
+
+**Site Configuration** (`src/config/site.ts`):
+
+Centralized configuration that reads from environment variables with fallback defaults. This is the single source of truth for site-wide configuration used throughout the application.
+
+**Component Configuration:**
+
+- **Contact Component**: Accepts `email`, `headline`, `description`, and `ctaText` as props, configured from `siteConfig` in `App.svelte`
+- **Footer Component**: Highly configurable with:
+  - `navigationLinks` - Array of navigation links with optional section IDs or custom onClick handlers
+  - `socialLinks` - Array of social media links with icon components
+  - `email` - Contact email for footer display
+  - `copyright` - Copyright text (supports dynamic year)
 
 ## Key Implementation Patterns
 

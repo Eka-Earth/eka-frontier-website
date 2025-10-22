@@ -13,7 +13,7 @@
   let { cols = { md: 2 }, gap = 6, children }: Props = $props()
 
   const gridClasses = $derived(() => {
-    const classes = ['grid']
+    const classes = ['grid', 'grid-cols-1']
 
     if (cols.sm) classes.push(`sm:grid-cols-${cols.sm}`)
     if (cols.md) classes.push(`md:grid-cols-${cols.md}`)

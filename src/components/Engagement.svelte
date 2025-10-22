@@ -54,49 +54,51 @@
     align="center"
   />
 
-  <GridLayout cols={{ md: 3 }} gap={6}>
-    {#each engagementModels as model, index (model.title)}
-      <Card
-        variant="service"
-        theme="dark"
-        icon={model.icon}
-        iconSize="lg"
-        isHovered={hoveredCard === index}
-        onHover={() => (hoveredCard = index)}
-        onUnhover={() => (hoveredCard = null)}
-        accentLine={true}
-      >
-        {#snippet title()}
-          <h3
-            class="text-2xl font-bold text-white mb-3 group-hover:text-eka-sage transition-all duration-300"
-          >
-            {model.title}
-          </h3>
-        {/snippet}
+  <div class="max-w-7xl mx-auto">
+    <GridLayout cols={{ sm: 1, md: 2, lg: 3 }} gap={6}>
+      {#each engagementModels as model, index (model.title)}
+        <Card
+          variant="service"
+          theme="dark"
+          icon={model.icon}
+          iconSize="lg"
+          isHovered={hoveredCard === index}
+          onHover={() => (hoveredCard = index)}
+          onUnhover={() => (hoveredCard = null)}
+          accentLine={true}
+        >
+          {#snippet title()}
+            <h3
+              class="text-2xl font-bold text-white mb-3 group-hover:text-eka-sage transition-all duration-300"
+            >
+              {model.title}
+            </h3>
+          {/snippet}
 
-        {#snippet badge()}
-          <Badge theme="dark" size="md"> {model.duration} </Badge>
-        {/snippet}
+          {#snippet badge()}
+            <Badge theme="dark" size="md">{model.duration}</Badge>
+          {/snippet}
 
-        {#snippet description()}
-          <p class="text-gray-300 leading-relaxed mb-6">{model.description}</p>
-        {/snippet}
+          {#snippet description()}
+            <p class="text-gray-300 leading-relaxed mb-6">{model.description}</p>
+          {/snippet}
 
-        {#snippet highlights()}
-          <div
-            class="space-y-2 {hoveredCard === index
-              ? 'opacity-100'
-              : 'opacity-0'} transition-opacity duration-500"
-          >
-            {#each model.highlights as highlight (highlight)}
-              <div class="flex items-center">
-                <div class="w-1.5 h-1.5 bg-eka-primary rounded-full mr-2"></div>
-                <span class="text-sm text-gray-400">{highlight}</span>
-              </div>
-            {/each}
-          </div>
-        {/snippet}
-      </Card>
-    {/each}
-  </GridLayout>
+          {#snippet highlights()}
+            <div
+              class="space-y-2 {hoveredCard === index
+                ? 'opacity-100'
+                : 'opacity-0'} transition-opacity duration-500"
+            >
+              {#each model.highlights as highlight (highlight)}
+                <div class="flex items-center">
+                  <div class="w-1.5 h-1.5 bg-eka-primary rounded-full mr-2"></div>
+                  <span class="text-sm text-gray-400">{highlight}</span>
+                </div>
+              {/each}
+            </div>
+          {/snippet}
+        </Card>
+      {/each}
+    </GridLayout>
+  </div>
 </SectionContainer>

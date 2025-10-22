@@ -82,7 +82,7 @@
         {/snippet}
 
         {#snippet badge()}
-          <Badge theme="dark" size="md"> {service.expertise} </Badge>
+          <Badge theme="dark" size="md">{service.expertise}</Badge>
         {/snippet}
 
         {#snippet description()}
