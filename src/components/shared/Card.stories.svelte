@@ -1,4 +1,4 @@
-<script context="module">
+<script lang="ts" context="module">
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import Card from './Card.svelte'
   import { LightBulbIcon } from 'heroicons-svelte/24/outline'
@@ -28,36 +28,30 @@
 
 {#snippet lightThemeTemplate(args)}
   <Card {...args}>
-    {#snippet children()}
-      <h3 class="text-xl font-bold text-eka-primary-dark mb-3">Strategic Excellence</h3>
-      <p class="text-gray-700">
-        Expertise in commercial frameworks, market entry, and business architecture.
-      </p>
-    {/snippet}
+    <h3 class="text-xl font-bold text-eka-primary-dark mb-3">Strategic Excellence</h3>
+    <p class="text-gray-700">
+      Expertise in commercial frameworks, market entry, and business architecture.
+    </p>
   </Card>
 {/snippet}
 
 {#snippet darkThemeTemplate(args)}
   <Card {...args}>
-    {#snippet children()}
-      <h3 class="text-2xl font-bold text-white mb-3">Advisory Catalyst</h3>
-      <div class="inline-block px-3 py-1.5 bg-white/10 border border-white/20 rounded-full mb-4">
-        <p class="text-xs font-mono text-white">1 to 3 months</p>
-      </div>
-      <p class="text-gray-300">
-        Rapid deployment of frontier expertise at pivotal moments. Strategic interventions that shift
-        momentum.
-      </p>
-    {/snippet}
+    <h3 class="text-2xl font-bold text-white mb-3">Advisory Catalyst</h3>
+    <div class="inline-block px-3 py-1.5 bg-white/10 border border-white/20 rounded-full mb-4">
+      <p class="text-xs font-mono text-white">1 to 3 months</p>
+    </div>
+    <p class="text-gray-300">
+      Rapid deployment of frontier expertise at pivotal moments. Strategic interventions that shift
+      momentum.
+    </p>
   </Card>
 {/snippet}
 
 {#snippet noIconTemplate(args)}
   <Card {...args}>
-    {#snippet children()}
-      <h3 class="text-xl font-bold text-eka-primary-dark mb-3">Simple Card</h3>
-      <p class="text-gray-700">A card without an icon.</p>
-    {/snippet}
+    <h3 class="text-xl font-bold text-eka-primary-dark mb-3">Simple Card</h3>
+    <p class="text-gray-700">A card without an icon.</p>
   </Card>
 {/snippet}
 
@@ -74,8 +68,4 @@
   template={darkThemeTemplate}
 />
 
-<Story
-  name="No Icon"
-  args={{ theme: 'light' }}
-  template={noIconTemplate}
-/>
+<Story name="No Icon" args={{ theme: 'light' }} template={noIconTemplate} />
