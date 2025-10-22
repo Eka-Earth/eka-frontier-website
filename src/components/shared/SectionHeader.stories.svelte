@@ -19,6 +19,10 @@
   })
 </script>
 
+{#snippet template(args)}
+  <SectionHeader {...args} />
+{/snippet}
+
 <Story
   name="Light Theme Centered"
   args={{
@@ -29,6 +33,7 @@
     theme: 'light',
     align: 'center',
   }}
+  {template}
 />
 
 <Story
@@ -42,6 +47,7 @@
     align: 'center',
   }}
   parameters={{ backgrounds: { default: 'dark' } }}
+  {template}
 />
 
 <Story
@@ -54,4 +60,5 @@
     theme: 'light',
     align: 'left',
   }}
+  {template}
 />
