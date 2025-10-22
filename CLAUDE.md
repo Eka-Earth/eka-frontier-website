@@ -65,23 +65,27 @@ pnpm format:fix
 The project uses ESLint and Prettier to maintain code quality and consistency:
 
 **ESLint Configuration** (`eslint.config.ts`):
+
 - TypeScript-ESLint for TypeScript linting
 - `eslint-plugin-svelte` for Svelte-specific rules
 - Configured following official `eslint-plugin-svelte` recommendations
 - Uses flat config with `typescript-eslint` and `projectService` for enhanced TypeScript support
 
 **Prettier Configuration** (`prettier.config.ts`):
+
 - Single quotes, no semicolons, ES5 trailing commas
 - 100 character print width, 2-space indentation
 - `prettier-plugin-svelte` for Svelte formatting
 - Integrated with ESLint via `eslint-config-prettier` to prevent conflicts
 
 **Icon Components**:
+
 - Uses `heroicons-svelte` for all icons (imported from `heroicons-svelte/24/outline`)
 - Icons are type-safe Svelte components, not raw SVG strings
 - Avoids `{@html}` usage for security and maintainability
 
 **Best Practices**:
+
 - All `{#each}` blocks must have unique keys for proper Svelte reactivity
 - Use proper icon components instead of `{@html}` for SVG injection
 - Run `pnpm lint` and `pnpm format` before committing changes
