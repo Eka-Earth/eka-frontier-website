@@ -76,3 +76,6 @@ logo files/
 # Exclude temporary files and folders
 .svelte-kit/
 .direnv/
+
+*storybook.log
+storybook-static
