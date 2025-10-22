@@ -8,6 +8,10 @@
     GlobeAltIcon,
   } from 'heroicons-svelte/24/outline'
   import type { ComponentType } from 'svelte'
+  import SectionContainer from './shared/SectionContainer.svelte'
+  import SectionHeader from './shared/SectionHeader.svelte'
+  import GridLayout from './shared/GridLayout.svelte'
+  import Card from './shared/Card.svelte'
 
   let hoveredIndex: number | null = null
 
@@ -57,69 +61,41 @@
   ]
 </script>
 
-<section id="our-edge" class="py-24 bg-eka-light">
-  <div class="container-width section-padding">
-    <div class="text-center mb-16">
-      <div class="inline-block mb-6">
-        <span class="text-sm font-mono text-gray-600 tracking-wider uppercase">[ Our Edge ]</span>
-      </div>
-      <h2 class="text-4xl lg:text-5xl font-bold text-eka-primary-dark mb-6">
-        Innovations at the Frontier
-      </h2>
-      <p class="text-xl text-gray-700 max-w-4xl mx-auto">
-        Capabilities forged through a decade building at the frontier across markets, spanning
-        platform engineering, strategic growth, and operational scale.
-      </p>
-    </div>
+<SectionContainer id="our-edge" background="light">
+  <SectionHeader
+    label="Our Edge"
+    title="Innovations at the Frontier"
+    description="Capabilities forged through a decade building at the frontier across markets, spanning platform engineering, strategic growth, and operational scale."
+    theme="light"
+    align="center"
+  />
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {#each edgeFactors as factor, index (factor.title)}
-        <div
-          class="group relative bg-white rounded-xl border border-gray-200 hover:border-eka-primary/30 p-8 hover:shadow-xl transition-all duration-300 cursor-pointer"
-          style="min-height: 250px"
-          on:mouseenter={() => (hoveredIndex = index)}
-          on:mouseleave={() => (hoveredIndex = null)}
-        >
-          <!-- Title always visible -->
-          <div class="flex items-center gap-3 mb-4">
-            <svelte:component
-              this={factor.icon}
-              class="w-6 h-6 text-eka-primary flex-shrink-0"
-            />
-            <h3
-              class="text-lg font-medium {hoveredIndex === index
-                ? 'text-eka-primary'
-                : 'text-eka-primary-dark'} transition-colors"
-            >
-              {factor.title}
-            </h3>
-          </div>
-
-          <!-- Description with fade in/out -->
-          <div
-            class="{hoveredIndex === index
-              ? 'opacity-100'
-              : 'opacity-0'} transition-opacity duration-300"
+  <GridLayout cols={{ md: 2, lg: 3 }} gap={6}>
+    {#each edgeFactors as factor, index (factor.title)}
+      <Card
+        variant="edge"
+        theme="light"
+        icon={factor.icon}
+        iconSize="sm"
+        isHovered={hoveredIndex === index}
+        onHover={() => (hoveredIndex = index)}
+        onUnhover={() => (hoveredIndex = null)}
+        minHeight="250px"
+      >
+        {#snippet title()}
+          <h3
+            class="text-lg font-medium {hoveredIndex === index
+              ? 'text-eka-primary'
+              : 'text-eka-primary-dark'} transition-colors"
           >
-            <p class="text-sm text-gray-600 leading-relaxed">{factor.description}</p>
-          </div>
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
+            {factor.title}
+          </h3>
+        {/snippet}
 
-<style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.3s ease-in-out;
-  }
-</style>
+        {#snippet description()}
+          <p class="text-sm text-gray-600 leading-relaxed">{factor.description}</p>
+        {/snippet}
+      </Card>
+    {/each}
+  </GridLayout>
+</SectionContainer>
