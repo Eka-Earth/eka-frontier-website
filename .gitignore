@@ -79,3 +79,6 @@ logo files/
 
 *storybook.log
 storybook-static
+
+# Playwright MCP browser testing
+.playwright-mcp/
