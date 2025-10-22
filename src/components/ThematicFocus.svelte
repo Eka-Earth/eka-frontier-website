@@ -1,6 +1,10 @@
 <script lang="ts">
   import { SunIcon, SparklesIcon, GlobeAltIcon } from 'heroicons-svelte/24/outline'
   import type { ComponentType } from 'svelte'
+  import GridLayout from './shared/GridLayout.svelte'
+  import SectionContainer from './shared/SectionContainer.svelte'
+  import SectionHeader from './shared/SectionHeader.svelte'
+  import Card from './shared/Card.svelte'
 
   let expandedIndex: number | null = null
 
@@ -94,93 +98,44 @@
   }
 </script>
 
-<section id="themes" class="py-24 bg-white relative overflow-hidden">
-  <div class="relative z-10 container-width section-padding">
-    <div class="text-center mb-16">
-      <div class="inline-block mb-6">
-        <span class="text-sm font-mono text-gray-600 tracking-wider uppercase">[ Our Focus ]</span>
-      </div>
-      <h2 class="text-4xl lg:text-5xl font-bold text-eka-primary-dark mb-6">
-        Forging Regenerative and Resilient Futures
-      </h2>
-      <p class="text-lg text-gray-700 max-w-5xl mx-auto">
-        Partnering with organisations building the market infrastructure and technology solutions
-        for planetary resilience.
-      </p>
-    </div>
+<SectionContainer id="themes" background="white">
+  <SectionHeader
+    label="Our Focus"
+    title="Forging Regenerative and Resilient Futures"
+    description="Partnering with organisations building the market infrastructure and technology solutions for planetary resilience."
+    theme="light"
+    align="center"
+  />
 
-    <div class="grid md:grid-cols-2 gap-8">
-      {#each themes as theme, index (theme.title)}
-        <div
-          class="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
-        >
-          <!-- Visual header with image -->
-          <div
-            class="relative h-48 overflow-hidden bg-gradient-to-br from-eka-primary/10 to-eka-accent/10"
-          >
-            <img
-              src={theme.image}
-              alt={theme.title}
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
-            ></div>
-          </div>
+  <GridLayout cols={{ md: 2 }} gap={8}>
+    {#each themes as theme, index (theme.title)}
+      <Card
+        variant="thematic"
+        theme="light"
+        icon={theme.icon}
+        iconSize="sm"
+        image={theme.image}
+        imageAlt={theme.title}
+        isExpanded={expandedIndex === index}
+        onToggle={() => toggleExpand(index)}
+        shadowSize="2xl"
+        hoverable={false}
+      >
+        {#snippet title()}
+          <h3 class="text-xl font-bold text-eka-primary-dark flex-1">{theme.title}</h3>
+        {/snippet}
 
-          <!-- Content area -->
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-6">
-              <div class="flex items-start flex-1">
-                <div
-                  class="p-3 bg-eka-primary/10 rounded-xl mr-4 flex-shrink-0 group-hover:bg-eka-primary/20 transition-colors"
-                >
-                  <svelte:component this={theme.icon} class="w-6 h-6 text-eka-primary" />
-                </div>
-                <h3 class="text-xl font-bold text-eka-primary-dark flex-1">{theme.title}</h3>
-              </div>
-              <button
-                class="w-8 h-8 rounded-lg hover:bg-gray-100 transition-all flex items-center justify-center ml-4 text-gray-400 hover:text-eka-primary font-mono"
-                on:click={() => toggleExpand(index)}
-                aria-label="Toggle details"
-              >
-                {expandedIndex === index ? '−' : '+'}
-              </button>
-            </div>
-
-            <!-- Show content only when expanded -->
-            {#if expandedIndex === index}
-              <div class="animate-slide-down">
-                <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                  <span class="font-semibold">Thesis:</span>
-                  {theme.thesis}
-                </p>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  <span class="font-semibold">Focus:</span>
-                  {theme.focus}
-                </p>
-              </div>
-            {/if}
-          </div>
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
-
-<style>
-  @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-slide-down {
-    animation: slide-down 0.3s ease-out;
-  }
-</style>
+        {#snippet expandedContent()}
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            <span class="font-semibold">Thesis:</span>
+            {theme.thesis}
+          </p>
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <span class="font-semibold">Focus:</span>
+            {theme.focus}
+          </p>
+        {/snippet}
+      </Card>
+    {/each}
+  </GridLayout>
+</SectionContainer>
