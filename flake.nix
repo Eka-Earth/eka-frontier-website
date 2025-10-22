@@ -20,7 +20,15 @@
             nodePackages.pnpm
             nodePackages.typescript
             git
+            playwright-driver.browsers
+            ungoogled-chromium
           ];
+
+          # Playwright environment variables for NixOS
+          PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+          PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+          # Point Playwright to ungoogled-chromium
+          PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH = "${pkgs.ungoogled-chromium}/bin/chromium";
 
           shellHook = ''
             echo "🚀 Eka Frontier Development Environment"
@@ -28,13 +36,19 @@
             echo "Node.js version: $(node --version)"
             echo "pnpm version: $(pnpm --version)"
             echo "TypeScript version: $(tsc --version)"
+            echo "Chromium: ${pkgs.ungoogled-chromium}/bin/chromium"
+            echo ""
+            echo "Playwright Configuration:"
+            echo "  PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH"
+            echo "  PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=$PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH"
             echo ""
             echo "Available commands:"
-            echo "  pnpm install  - Install dependencies"
-            echo "  pnpm dev      - Start development server"
-            echo "  pnpm build    - Build for production (with type checking)"
-            echo "  pnpm check    - Run type checking"
-            echo "  pnpm preview  - Preview production build"
+            echo "  pnpm install    - Install dependencies"
+            echo "  pnpm dev        - Start development server"
+            echo "  pnpm build      - Build for production (with type checking)"
+            echo "  pnpm check      - Run type checking"
+            echo "  pnpm preview    - Preview production build"
+            echo "  pnpm storybook  - Start Storybook component explorer"
             echo ""
           '';
         };
