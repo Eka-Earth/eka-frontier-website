@@ -25,10 +25,11 @@
     children,
   }: Props = $props()
 
-  const bgClasses =
+  const bgClasses = $derived(
     theme === 'dark'
       ? 'bg-eka-navy/50 backdrop-blur-sm border-white/10 hover:border-white/30'
-      : 'bg-white border-gray-200 hover:border-eka-primary/30'
+      : 'bg-white border-gray-200 hover:border-eka-primary/30',
+  )
 
   const iconBgClasses = {
     primary: 'bg-eka-primary',
@@ -42,11 +43,11 @@
     lg: 'w-10 h-10',
   }
 
-  const iconColor = iconBg === 'white' ? 'text-eka-primary' : 'text-white'
+  const iconColor = $derived(iconBg === 'white' ? 'text-eka-primary' : 'text-white')
 
-  const hoverClasses = hoverable
-    ? 'hover:shadow-xl transition-all duration-300 cursor-pointer'
-    : ''
+  const hoverClasses = $derived(
+    hoverable ? 'hover:shadow-xl transition-all duration-300 cursor-pointer' : '',
+  )
 </script>
 
 <div

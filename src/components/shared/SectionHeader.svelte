@@ -9,10 +9,10 @@
 
   let { label, title, description, theme = 'light', align = 'center' }: Props = $props()
 
-  const alignClasses = align === 'center' ? 'text-center' : 'text-left'
-  const titleColor = theme === 'dark' ? 'text-white' : 'text-eka-primary-dark'
-  const labelColor = theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-  const descColor = theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+  const alignClasses = $derived(align === 'center' ? 'text-center' : 'text-left')
+  const titleColor = $derived(theme === 'dark' ? 'text-white' : 'text-eka-primary-dark')
+  const labelColor = $derived(theme === 'dark' ? 'text-gray-400' : 'text-gray-600')
+  const descColor = $derived(theme === 'dark' ? 'text-gray-300' : 'text-gray-700')
 </script>
 
 <div class="{alignClasses} mb-16">
