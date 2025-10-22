@@ -29,7 +29,7 @@
     label: 'Our Services',
     title: 'Building the Future',
     description:
-      'We partner with organizations building the market infrastructure and technology solutions for planetary resilience.',
+      'We partner with organisations building the market infrastructure and technology solutions for planetary resilience.',
     theme: 'light',
     align: 'center',
   }}

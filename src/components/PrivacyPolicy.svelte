@@ -114,7 +114,7 @@
         <section>
           <h2 class="text-2xl font-semibold mb-4 text-white">Data Security</h2>
           <p class="text-gray-300">
-            We implement appropriate technical and organizational measures to protect your data,
+            We implement appropriate technical and organisational measures to protect your data,
             including encryption and access controls. While we strive to protect your information,
             no internet transmission is completely secure.
           </p>
