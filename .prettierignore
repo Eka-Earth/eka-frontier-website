@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+.vite/
+
+# Auto-generated
+.svelte-kit/
+
+# Other
+coverage/
