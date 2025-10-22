@@ -1,4 +1,4 @@
-<script context="module">
+<script lang="ts" context="module">
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import SectionHeader from './SectionHeader.svelte'
 
