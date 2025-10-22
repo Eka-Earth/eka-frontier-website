@@ -1,13 +1,24 @@
 <script lang="ts">
+  import { LightBulbIcon, BoltIcon, UserGroupIcon } from 'heroicons-svelte/24/outline'
+  import type { ComponentType } from 'svelte'
+
   let hoveredCard: number | null = null
 
-  const engagementModels = [
+  interface EngagementModel {
+    title: string
+    duration: string
+    description: string
+    icon: ComponentType
+    highlights: string[]
+  }
+
+  const engagementModels: EngagementModel[] = [
     {
       title: 'Advisory Catalyst',
       duration: '1 to 3 months',
       description:
         'Rapid deployment of frontier expertise at pivotal moments. Strategic interventions that shift momentum.',
-      icon: 'lightbulb',
+      icon: LightBulbIcon,
       highlights: ['Rapid deployment', 'Strategic interventions', 'Momentum shift'],
     },
     {
@@ -15,7 +26,7 @@
       duration: '3 to 6 months',
       description:
         'Focused execution on critical initiatives and full product incubation - whether building breakthrough platforms or unlocking new markets.',
-      icon: 'bolt',
+      icon: BoltIcon,
       highlights: ['Critical initiatives', 'End-to-end platform development', 'Rapid execution'],
     },
     {
@@ -23,23 +34,10 @@
       duration: '6 to 12 months',
       description:
         'Full-scale transformation with embedded leadership to drive go-to-market, strategic growth, protocol development and market expansion.',
-      icon: 'rocket',
+      icon: UserGroupIcon,
       highlights: ['Embedded leadership', 'Full-scale transformation', 'Market expansion'],
     },
   ]
-
-  function getIcon(iconName: string): string {
-    switch (iconName) {
-      case 'rocket':
-        return `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>`
-      case 'bolt':
-        return `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>`
-      case 'lightbulb':
-        return `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>`
-      default:
-        return ''
-    }
-  }
 </script>
 
 <section id="engagement" class="py-24 bg-eka-deep">
@@ -56,7 +54,7 @@
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
-      {#each engagementModels as model, index}
+      {#each engagementModels as model, index (model.title)}
         <div
           class="group relative bg-eka-navy/50 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500 overflow-hidden cursor-pointer"
           on:mouseenter={() => (hoveredCard = index)}
@@ -68,14 +66,7 @@
               <div
                 class="p-4 bg-eka-primary rounded-2xl group-hover:scale-110 transition-transform duration-300"
               >
-                <svg
-                  class="w-10 h-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {@html getIcon(model.icon)}
-                </svg>
+                <svelte:component this={model.icon} class="w-10 h-10 text-white" />
               </div>
             </div>
 
@@ -102,7 +93,7 @@
                 ? 'opacity-100'
                 : 'opacity-0'} transition-opacity duration-500"
             >
-              {#each model.highlights as highlight}
+              {#each model.highlights as highlight (highlight)}
                 <div class="flex items-center">
                   <div class="w-1.5 h-1.5 bg-eka-primary rounded-full mr-2"></div>
                   <span class="text-sm text-gray-400">{highlight}</span>

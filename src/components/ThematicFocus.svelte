@@ -1,7 +1,20 @@
 <script lang="ts">
+  import { SunIcon, SparklesIcon, GlobeAltIcon } from 'heroicons-svelte/24/outline'
+  import type { ComponentType } from 'svelte'
+
   let expandedIndex: number | null = null
 
-  const themes = [
+  interface Theme {
+    title: string
+    thesis: string
+    focus: string
+    bullets: string[]
+    icon: ComponentType
+    metrics: string
+    image: string
+  }
+
+  const themes: Theme[] = [
     {
       title: 'Renewable Energy Markets',
       thesis:
@@ -16,7 +29,7 @@
         'Green bond infrastructure',
         'EV charging network systems',
       ],
-      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>`,
+      icon: SunIcon,
       metrics: '$130T transition',
       image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072',
     },
@@ -34,7 +47,7 @@
         'Smallholder finance systems',
         'Parametric insurance platforms',
       ],
-      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v10m0 0c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 0c3.3 0 6-2.7 6-6M12 12c-3.3 0-6-2.7-6-6"/>`,
+      icon: SparklesIcon,
       metrics: '10B people by 2050',
       image: 'https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?q=80&w=2070',
     },
@@ -52,7 +65,7 @@
         'Satellite-verified verification',
         'Nature-backed financial instruments',
       ],
-      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+      icon: GlobeAltIcon,
       metrics: '50% of global GDP',
       image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071',
     },
@@ -70,7 +83,7 @@
         'Decentralised exchange protocols',
         'Cross-chain infrastructure',
       ],
-      icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>`,
+      icon: GlobeAltIcon,
       metrics: 'Resilient systems',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072',
     },
@@ -97,7 +110,7 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
-      {#each themes as theme, index}
+      {#each themes as theme, index (theme.title)}
         <div
           class="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
         >
@@ -122,14 +135,7 @@
                 <div
                   class="p-3 bg-eka-primary/10 rounded-xl mr-4 flex-shrink-0 group-hover:bg-eka-primary/20 transition-colors"
                 >
-                  <svg
-                    class="w-6 h-6 text-eka-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {@html theme.icon}
-                  </svg>
+                  <svelte:component this={theme.icon} class="w-6 h-6 text-eka-primary" />
                 </div>
                 <h3 class="text-xl font-bold text-eka-primary-dark flex-1">{theme.title}</h3>
               </div>
