@@ -37,7 +37,7 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
-      {#each focusAreas as area}
+      {#each focusAreas as area (area.title)}
         <div
           class="bg-white p-6 rounded-xl border-l-4 border-eka-primary hover:shadow-lg transition-shadow"
         >

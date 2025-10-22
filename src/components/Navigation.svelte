@@ -109,7 +109,7 @@
     <div class="fixed inset-0 bg-white z-[55] animate-fade-in">
       <div class="flex flex-col justify-center items-start h-full max-w-7xl mx-auto px-12 lg:px-24">
         <div class="space-y-8">
-          {#each navItems as item, index}
+          {#each navItems as item, index (item.id)}
             <button
               on:click={() => scrollToSection(item.id)}
               class="block text-left text-4xl lg:text-5xl font-medium text-eka-primary-dark hover:text-eka-primary transition-all duration-300 hover:translate-x-2 animate-slide-up"

@@ -45,7 +45,7 @@
       <div class="bg-white rounded-2xl p-8 border border-gray-100">
         <h3 class="text-2xl font-bold text-eka-black mb-6">Track Record That Speaks</h3>
         <div class="grid md:grid-cols-2 gap-4">
-          {#each trackRecord as item}
+          {#each trackRecord as item (item)}
             <div class="flex items-start">
               <span class="text-eka-primary mr-3 mt-1">✓</span>
               <p class="text-gray-700 text-sm">{item}</p>
@@ -57,7 +57,7 @@
       <div class="bg-white rounded-2xl p-8 border border-gray-100">
         <h3 class="text-2xl font-bold text-eka-black mb-6">Technical Excellence at Scale</h3>
         <div class="grid md:grid-cols-2 gap-4">
-          {#each technicalExcellence as item}
+          {#each technicalExcellence as item (item)}
             <div class="flex items-start">
               <span class="text-eka-primary mr-3 mt-1">✓</span>
               <p class="text-gray-700 text-sm">{item}</p>
@@ -69,7 +69,7 @@
       <div class="bg-white rounded-2xl p-8 border border-gray-100">
         <h3 class="text-2xl font-bold text-eka-black mb-6">Frontier Market Leadership</h3>
         <div class="grid md:grid-cols-2 gap-4">
-          {#each marketLeadership as item}
+          {#each marketLeadership as item (item)}
             <div class="flex items-start">
               <span class="text-eka-primary mr-3 mt-1">✓</span>
               <p class="text-gray-700 text-sm">{item}</p>

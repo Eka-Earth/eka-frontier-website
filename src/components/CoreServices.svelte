@@ -60,7 +60,7 @@
 
     <!-- Service cards grid -->
     <div class="grid lg:grid-cols-2 gap-8">
-      {#each services as service, index}
+      {#each services as service, index (service.id)}
         <div
           class="group relative"
           on:mouseenter={() => (hoveredCard = index)}
@@ -127,7 +127,7 @@
                   ? 'opacity-100'
                   : 'opacity-0'} transition-opacity duration-500"
               >
-                {#each service.highlights as highlight}
+                {#each service.highlights as highlight (highlight)}
                   <div class="flex items-center">
                     <div class="w-1.5 h-1.5 bg-eka-primary rounded-full mr-2"></div>
                     <span class="text-sm text-gray-400">{highlight}</span>
