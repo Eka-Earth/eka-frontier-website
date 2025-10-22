@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Hero from './components/Hero.svelte';
   import Navigation from './components/Navigation.svelte';
   import OurEdge from './components/OurEdge.svelte';
@@ -8,7 +8,8 @@
   import Contact from './components/Contact.svelte';
   import PrivacyPolicy from './components/PrivacyPolicy.svelte';
 
-  let currentView = 'home';
+  type ViewType = 'home' | 'privacy';
+  let currentView: ViewType = 'home';
 
   // Check URL on load
   if (window.location.pathname === '/privacy-policy' || window.location.hash === '#privacy-policy') {
@@ -34,13 +35,13 @@
     navigateToHome();
   });
 
-  function navigateToPrivacy() {
+  function navigateToPrivacy(): void {
     currentView = 'privacy';
     window.history.pushState({}, '', '#privacy-policy');
     window.scrollTo(0, 0);
   }
 
-  function navigateToHome() {
+  function navigateToHome(): void {
     currentView = 'home';
     window.history.pushState({}, '', '/');
     window.scrollTo(0, 0);

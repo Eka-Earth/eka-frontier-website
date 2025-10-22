@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   const thesisPoints = [
     "Thrive through volatility while others merely survive",
     "Scale exponentially across markets others find impossible",

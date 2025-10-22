@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   const trackRecord = [
     "Scaled ventures from zero to millions of users across four Asian markets",
     "Architected platforms processing $100M+ in strategic partnerships",

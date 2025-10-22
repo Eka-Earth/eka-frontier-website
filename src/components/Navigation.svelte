@@ -1,17 +1,18 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
-  let isOpen = false;
-  let scrolled = false;
+
+  let isOpen: boolean = false;
+  let scrolled: boolean = false;
 
   onMount(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       scrolled = window.scrollY > 20;
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   });
 
-  function toggleMenu() {
+  function toggleMenu(): void {
     isOpen = !isOpen;
     // Prevent body scroll when menu is open
     if (!isOpen) {
@@ -21,7 +22,7 @@
     }
   }
 
-  function scrollToSection(id) {
+  function scrollToSection(id: string): void {
     // Close menu first
     isOpen = false;
     document.body.style.overflow = 'auto';
@@ -37,7 +38,7 @@
     }
   }
 
-  function goHome() {
+  function goHome(): void {
     isOpen = false;
     document.body.style.overflow = 'auto';
 
@@ -48,7 +49,12 @@
     }
   }
 
-  const navItems = [
+  interface NavItem {
+    label: string;
+    id: string;
+  }
+
+  const navItems: NavItem[] = [
     { label: 'Our Edge', id: 'our-edge' },
     { label: 'Our Solutions', id: 'services' },
     { label: 'Our Focus', id: 'themes' },

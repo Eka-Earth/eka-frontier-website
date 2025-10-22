@@ -1,5 +1,5 @@
-<script>
-  let hoveredIndex = null;
+<script lang="ts">
+  let hoveredIndex: number | null = null;
 
   const edgeFactors = [
     {

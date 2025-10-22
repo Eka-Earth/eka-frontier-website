@@ -1,5 +1,5 @@
-<script>
-  let expandedIndex = null;
+<script lang="ts">
+  let expandedIndex: number | null = null;
 
   const themes = [
     {
@@ -40,7 +40,7 @@
     }
   ];
 
-  function toggleExpand(index) {
+  function toggleExpand(index: number): void {
     expandedIndex = expandedIndex === index ? null : index;
   }
 </script>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   const focusAreas = [
     {
       title: "Natural Capital Markets",

@@ -1,5 +1,5 @@
-<script>
-  let hoveredCard = null;
+<script lang="ts">
+  let hoveredCard: number | null = null;
 
   const services = [
     {
