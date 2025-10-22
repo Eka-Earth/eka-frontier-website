@@ -14,6 +14,7 @@ This is the Eka Frontier company website - a single-page application showcasing 
 ## Development Setup
 
 ### Using Nix (Recommended)
+
 ```bash
 # If you have direnv installed
 direnv allow
@@ -25,6 +26,7 @@ nix develop
 The flake provides Node.js 22, pnpm, TypeScript, and git.
 
 ### Manual Setup
+
 ```bash
 # Install dependencies
 pnpm install
@@ -81,6 +83,7 @@ Components are rendered in this specific sequence in App.svelte:
 **Tailwind CSS 4** with custom theme configuration in `src/app.css`:
 
 **Custom Colors (Eka brand palette):**
+
 - Primary: `eka-primary` (#1b4332), `eka-primary-dark` (#081c15), `eka-primary-light` (#2d6a4f)
 - Sage: `eka-sage` (#b8c7c0), `eka-sage-muted` (#768e84)
 - Accent: `eka-accent` (#2190cc)
@@ -88,22 +91,26 @@ Components are rendered in this specific sequence in App.svelte:
 - Neutrals: `eka-black`, `eka-gray`, `eka-light`, `eka-white`, `eka-mint`
 
 **Typography:**
+
 - Primary font: `Inter` (via Google Fonts)
 - Condensed font: `Roboto Condensed` (via Google Fonts)
 - Font families: `font-sans`, `font-condensed`
 
 **Custom utility classes:**
+
 - `.gradient-text` - Green gradient text effect
 - `.section-padding` - Responsive horizontal padding (1.5rem → 3rem → 5rem)
 - `.container-width` - Max-width container (80rem)
 
 **Animations:**
+
 - `animate-fade-in` - Fade in over 0.8s
 - `animate-slide-up` - Slide up from below over 0.6s
 
 ### Content Management
 
 **WEBSITE_COPY.md** contains all website copy and content structure. This is the single source of truth for:
+
 - All section text content
 - Navigation labels and structure
 - Button CTAs
@@ -117,20 +124,23 @@ When updating website content, always reference WEBSITE_COPY.md first to ensure 
 ### Navigation State Management
 
 Navigation logo changes color based on scroll position and menu state:
+
 - Transparent background → White/95 backdrop blur on scroll
 - White logo when not scrolled → Color logo when scrolled or menu open
 
 ### Body Scroll Lock
 
 Mobile menu prevents body scrolling when open:
+
 ```javascript
-document.body.style.overflow = 'hidden'; // Menu open
-document.body.style.overflow = 'auto';   // Menu closed
+document.body.style.overflow = 'hidden' // Menu open
+document.body.style.overflow = 'auto' // Menu closed
 ```
 
 ### Cross-View Navigation
 
 When navigating to a section from the privacy policy page, the app:
+
 1. Dispatches `navigate-home` event
 2. Waits 100ms for view transition
 3. Scrolls to target section
@@ -152,6 +162,7 @@ The project is fully typed with TypeScript:
 ### Type Checking
 
 Type checking runs automatically during build. To run manually:
+
 ```bash
 pnpm check
 ```

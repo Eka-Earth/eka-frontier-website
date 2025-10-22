@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-eka-primary: #1b4332;
@@ -11,7 +11,7 @@
   --color-eka-deep: #002430;
   --color-eka-navy: #001829;
   --color-eka-black: #000000;
-  --color-eka-gray: #6B7280;
+  --color-eka-gray: #6b7280;
   --color-eka-light: #fafafa;
   --color-eka-white: #ffffff;
   --color-eka-mint: #fafffb;
@@ -24,13 +24,23 @@
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  0% { transform: translateY(30px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @layer base {
@@ -46,7 +56,7 @@
 
 @layer components {
   .gradient-text {
-    background: linear-gradient(to right, #00C896, #00A878);
+    background: linear-gradient(to right, #00c896, #00a878);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

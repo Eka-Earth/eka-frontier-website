@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  let mounted = false;
+  import { onMount } from 'svelte'
+  let mounted = false
 
   onMount(() => {
-    mounted = true;
-  });
+    mounted = true
+  })
 </script>
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -19,7 +19,7 @@
 
   <!-- Content -->
   <div class="relative z-10 container-width section-padding text-center pt-20">
-    <div class="{mounted ? 'animate-fade-in' : ''}">
+    <div class={mounted ? 'animate-fade-in' : ''}>
       <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-8 leading-tight">
         <span class="text-white">Building Digital Infrastructure</span>
         <br />
@@ -27,7 +27,8 @@
       </h1>
 
       <p class="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8">
-        Partnering with frontier organisations to architect, grow, and scale digital rails for tomorrow's resilient, regenerative economy.
+        Partnering with frontier organisations to architect, grow, and scale digital rails for
+        tomorrow's resilient, regenerative economy.
       </p>
     </div>
 

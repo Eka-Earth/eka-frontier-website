@@ -1,29 +1,31 @@
 <script lang="ts">
   const focusAreas = [
     {
-      title: "Natural Capital Markets",
-      description: "Making nature the next asset class through transparent, verifiable platforms"
+      title: 'Natural Capital Markets',
+      description: 'Making nature the next asset class through transparent, verifiable platforms',
     },
     {
-      title: "Distributed Energy Systems",
-      description: "Architecting the infrastructure for humanity's clean energy transition"
+      title: 'Distributed Energy Systems',
+      description: "Architecting the infrastructure for humanity's clean energy transition",
     },
     {
-      title: "Regenerative Value Chains",
-      description: "Enabling business models that regenerate rather than extract"
+      title: 'Regenerative Value Chains',
+      description: 'Enabling business models that regenerate rather than extract',
     },
     {
-      title: "Market Transformation",
-      description: "Scaling breakthrough solutions across the world's most dynamic economies"
-    }
-  ];
+      title: 'Market Transformation',
+      description: "Scaling breakthrough solutions across the world's most dynamic economies",
+    },
+  ]
 </script>
 
 <section id="focus" class="py-20 bg-gray-50">
   <div class="container-width section-padding">
     <div class="text-center mb-12">
       <h2 class="text-4xl lg:text-5xl font-bold text-eka-black mb-4">Strategic Focus</h2>
-      <p class="text-xl text-gray-600 mb-8">Architecting the Digital Rails for Regenerative Transformation</p>
+      <p class="text-xl text-gray-600 mb-8">
+        Architecting the Digital Rails for Regenerative Transformation
+      </p>
     </div>
 
     <div class="max-w-4xl mx-auto mb-12">
@@ -36,7 +38,9 @@
 
     <div class="grid md:grid-cols-2 gap-6">
       {#each focusAreas as area}
-        <div class="bg-white p-6 rounded-xl border-l-4 border-eka-primary hover:shadow-lg transition-shadow">
+        <div
+          class="bg-white p-6 rounded-xl border-l-4 border-eka-primary hover:shadow-lg transition-shadow"
+        >
           <h3 class="font-bold text-lg text-eka-black mb-2">{area.title}</h3>
           <p class="text-gray-600">{area.description}</p>
         </div>

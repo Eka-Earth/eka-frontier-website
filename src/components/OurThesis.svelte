@@ -1,11 +1,11 @@
 <script lang="ts">
   const thesisPoints = [
-    "Thrive through volatility while others merely survive",
-    "Scale exponentially across markets others find impossible",
-    "Create transparent, verifiable impact at planetary scale",
-    "Transform frontier innovation into institutional opportunity",
-    "Build resilience into every layer of the stack"
-  ];
+    'Thrive through volatility while others merely survive',
+    'Scale exponentially across markets others find impossible',
+    'Create transparent, verifiable impact at planetary scale',
+    'Transform frontier innovation into institutional opportunity',
+    'Build resilience into every layer of the stack',
+  ]
 </script>
 
 <section class="py-20 bg-gray-900 text-white">
@@ -20,8 +20,8 @@
     <div class="max-w-4xl mx-auto">
       <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-white/20">
         <p class="text-lg leading-relaxed mb-8 text-gray-300">
-          Traditional infrastructure wasn't designed for the speed and scale of transformation we need.
-          We're architecting new digital rails that:
+          Traditional infrastructure wasn't designed for the speed and scale of transformation we
+          need. We're architecting new digital rails that:
         </p>
 
         <div class="space-y-4 mb-8">
@@ -35,8 +35,8 @@
 
         <div class="border-t border-white/20 pt-8">
           <p class="text-lg font-semibold text-center text-gray-300">
-            This isn't incremental change. It's system-level transformation -
-            architected for a future that demands both speed and sustainability.
+            This isn't incremental change. It's system-level transformation - architected for a
+            future that demands both speed and sustainability.
           </p>
         </div>
       </div>
