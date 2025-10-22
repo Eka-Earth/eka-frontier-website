@@ -32,5 +32,8 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.2",
     "vite": "^7.1.11"
+  },
+  "dependencies": {
+    "heroicons-svelte": "^2.0.2"
   }
 }
