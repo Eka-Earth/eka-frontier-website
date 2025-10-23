@@ -37,7 +37,7 @@
   }
 </script>
 
-<footer class="bg-gradient-to-br from-eka-light via-white to-eka-mint py-16">
+<footer class="bg-gradient-to-br from-[#fafafa] via-white to-[#fafffb] dark:bg-brand-navy dark:from-brand-navy dark:via-brand-navy dark:to-brand-navy py-16 transition-colors duration-300">
   <div class="container-width section-padding">
     <div class="max-w-4xl mx-auto">
       <!-- Navigation shortcuts -->
@@ -47,13 +47,13 @@
             {#if link.href}
               <a
                 href={link.href}
-                class="text-sm text-gray-600 hover:text-eka-primary transition-colors"
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
               >
                 {link.label}
               </a>
             {:else}
               <button
-                class="text-sm text-gray-600 hover:text-eka-primary transition-colors"
+                class="text-sm text-gray-600 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
                 onclick={() => handleNavigationClick(link)}
               >
                 {link.label}
@@ -66,11 +66,11 @@
       <!-- Connect with us section -->
       {#if email || socialLinks.length > 0}
         <div class="flex justify-center items-center gap-6 mb-8">
-          <span class="text-sm text-gray-600">Connect with us</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">Connect with us</span>
           {#if email}
             <a
               href="mailto:{email}"
-              class="text-gray-600 hover:text-eka-primary transition-colors"
+              class="text-gray-600 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
               aria-label="Email us"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-gray-600 hover:text-eka-primary transition-colors"
+              class="text-gray-600 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
               aria-label={social.label}
             >
               <Icon class="w-5 h-5" />
@@ -100,7 +100,7 @@
 
       <!-- Copyright -->
       <div class="text-center">
-        <p class="text-sm text-gray-500">{copyright}</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{copyright}</p>
       </div>
     </div>
   </div>
