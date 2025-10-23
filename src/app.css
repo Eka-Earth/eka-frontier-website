@@ -1,26 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap');
 @import 'tailwindcss';
 
-@theme {
-  --color-eka-primary: #1b4332;
-  --color-eka-primary-dark: #081c15;
-  --color-eka-primary-light: #2d6a4f;
-  --color-eka-sage: #b8c7c0;
-  --color-eka-sage-muted: #768e84;
-  --color-eka-accent: #2190cc;
-  --color-eka-deep: #002430;
-  --color-eka-navy: #001829;
-  --color-eka-black: #000000;
-  --color-eka-gray: #6b7280;
-  --color-eka-light: #fafafa;
-  --color-eka-white: #ffffff;
-  --color-eka-mint: #fafffb;
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  /* Brand Colors - Foundation palette */
+  --color-brand-primary: #1b4332;
+  --color-brand-primary-dark: #081c15;
+  --color-brand-primary-light: #2d6a4f;
+  --color-brand-sage: #b8c7c0;
+  --color-brand-sage-muted: #768e84;
+  --color-brand-accent: #2190cc;
+  --color-brand-deep: #002430;
+  --color-brand-navy: #001829;
+
+  /* Semantic Colors - Light Theme (default) */
+  --color-bg-app: #fafafa;
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-bg-overlay: rgba(255, 255, 255, 0.95);
+  --color-bg-interactive: #ffffff;
+  --color-bg-interactive-hover: #f9fafb;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #e5e7eb;
+  --color-border-hover: rgba(27, 67, 50, 0.3);
+  --color-border-active: rgba(27, 67, 50, 0.4);
+
+  --color-accent-bg: rgba(27, 67, 50, 0.1);
+  --color-accent-bg-hover: rgba(27, 67, 50, 0.2);
+
+  --color-gradient-from: #00c896;
+  --color-gradient-to: #00a878;
+
+  /* Typography */
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-condensed: 'Roboto Condensed', system-ui, sans-serif;
 
+  /* Animations */
   --animate-fade-in: fadeIn 0.8s ease-in-out;
   --animate-slide-up: slideUp 0.6s ease-out;
+}
+
+/* Dark mode overrides - both for .dark class and system preference */
+@layer base {
+  /* System dark mode preference */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg-app: #001829;
+      --color-bg-surface: rgba(0, 36, 48, 0.6);
+      --color-bg-elevated: rgba(0, 36, 48, 0.8);
+      --color-bg-overlay: rgba(0, 24, 41, 0.95);
+      --color-bg-interactive: rgba(0, 36, 48, 0.5);
+      --color-bg-interactive-hover: rgba(0, 36, 48, 0.7);
+
+      --color-text-primary: #f9fafb;
+      --color-text-secondary: #d1d5db;
+      --color-text-muted: #9ca3af;
+      --color-text-inverse: #111827;
+
+      --color-border: rgba(255, 255, 255, 0.1);
+      --color-border-hover: rgba(255, 255, 255, 0.3);
+      --color-border-active: rgba(255, 255, 255, 0.4);
+
+      --color-accent-bg: rgba(45, 106, 79, 0.2);
+      --color-accent-bg-hover: rgba(45, 106, 79, 0.3);
+
+      --color-gradient-from: #2d6a4f;
+      --color-gradient-to: #1b4332;
+    }
+  }
+
+  /* Manual dark mode toggle */
+  .dark {
+    --color-bg-app: #001829;
+    --color-bg-surface: rgba(0, 36, 48, 0.6);
+    --color-bg-elevated: rgba(0, 36, 48, 0.8);
+    --color-bg-overlay: rgba(0, 24, 41, 0.95);
+    --color-bg-interactive: rgba(0, 36, 48, 0.5);
+    --color-bg-interactive-hover: rgba(0, 36, 48, 0.7);
+
+    --color-text-primary: #f9fafb;
+    --color-text-secondary: #d1d5db;
+    --color-text-muted: #9ca3af;
+    --color-text-inverse: #111827;
+
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-border-hover: rgba(255, 255, 255, 0.3);
+    --color-border-active: rgba(255, 255, 255, 0.4);
+
+    --color-accent-bg: rgba(45, 106, 79, 0.2);
+    --color-accent-bg-hover: rgba(45, 106, 79, 0.3);
+
+    --color-gradient-from: #2d6a4f;
+    --color-gradient-to: #1b4332;
+  }
 }
 
 @keyframes fadeIn {
@@ -50,6 +129,9 @@
   }
 
   body {
+    background-color: var(--color-bg-app);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -57,7 +139,7 @@
 
 @layer components {
   .gradient-text {
-    background: linear-gradient(to right, #00c896, #00a878);
+    background: linear-gradient(to right, var(--color-gradient-from), var(--color-gradient-to));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

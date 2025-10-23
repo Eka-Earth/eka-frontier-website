@@ -5,6 +5,33 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eka-frontier</title>
+    <script>
+      // Theme initialization - runs before page render to prevent flash
+      (function() {
+        const storageKey = 'eka-theme'
+        const getTheme = () => {
+          // 1. Check localStorage for saved preference
+          const saved = localStorage.getItem(storageKey)
+          if (saved === 'light' || saved === 'dark') return saved
+
+          // 2. Check system preference
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+          }
+
+          // 3. Default to light
+          return 'light'
+        }
+
+        const theme = getTheme()
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark')
+        }
+
+        // Save initial theme
+        localStorage.setItem(storageKey, theme)
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>
