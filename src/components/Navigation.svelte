@@ -2,17 +2,38 @@
   import { onMount } from 'svelte'
   import HamburgerButton from './shared/HamburgerButton.svelte'
   import MobileMenu from './shared/MobileMenu.svelte'
+  import ThemeToggle from './shared/ThemeToggle.svelte'
   import type { MenuItem } from './shared/MobileMenu.svelte'
 
   let isOpen = $state(false)
   let scrolled = $state(false)
+  let isDark = $state(false)
 
   onMount(() => {
     const handleScroll = (): void => {
       scrolled = window.scrollY > 20
     }
+
+    const checkDarkMode = (): void => {
+      isDark = document.documentElement.classList.contains('dark')
+    }
+
+    // Initial check
+    checkDarkMode()
+
+    // Listen for dark mode changes
+    const observer = new MutationObserver(checkDarkMode)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      observer.disconnect()
+    }
   })
 
   function toggleMenu(): void {
@@ -83,26 +104,29 @@
 
 <nav
   class="fixed top-0 w-full z-[60] transition-all duration-300 {scrolled
-    ? 'bg-white/95 backdrop-blur-lg shadow-sm'
+    ? 'bg-white/95 dark:bg-brand-navy/95 backdrop-blur-lg shadow-sm'
     : 'bg-transparent'}"
 >
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <button class="flex items-center" onclick={goHome}>
-        {#if scrolled || isOpen}
-          <img src="/logos/color-logo.svg" alt="Eka Frontier" class="h-8 w-auto" />
-        {:else}
+        {#if isDark || (!scrolled && !isOpen)}
           <img src="/logos/white-logo.svg" alt="Eka Frontier" class="h-8 w-auto" />
+        {:else}
+          <img src="/logos/color-logo.svg" alt="Eka Frontier" class="h-8 w-auto" />
         {/if}
       </button>
 
-      <!-- Hamburger Menu Button -->
-      <HamburgerButton
-        {isOpen}
-        color={scrolled || isOpen ? 'dark' : 'light'}
-        onclick={toggleMenu}
-      />
+      <!-- Theme Toggle & Hamburger Menu -->
+      <div class="flex items-center gap-2">
+        <ThemeToggle color={isDark || (!scrolled && !isOpen) ? 'light' : 'dark'} />
+        <HamburgerButton
+          {isOpen}
+          color={isDark || (!scrolled && !isOpen) ? 'light' : 'dark'}
+          onclick={toggleMenu}
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -112,7 +136,7 @@
   {#snippet footer()}
     <a
       href="mailto:contact@ekafrontier.io"
-      class="text-lg text-gray-600 hover:text-eka-primary transition-colors"
+      class="text-lg text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
     >
       contact@ekafrontier.io
     </a>
