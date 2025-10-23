@@ -9,11 +9,11 @@
   let { id, background = 'white', pattern = false, children }: Props = $props()
 
   const bgClasses = {
-    light: 'bg-eka-light',
-    dark: 'bg-eka-navy',
-    deep: 'bg-eka-deep',
-    white: 'bg-white',
-    gradient: 'bg-gradient-to-br from-eka-light via-white to-eka-mint',
+    light: 'bg-[#fafafa] dark:bg-brand-navy',
+    dark: 'bg-brand-navy dark:bg-brand-deep',
+    deep: 'bg-brand-deep dark:bg-black',
+    white: 'bg-white dark:bg-brand-navy',
+    gradient: 'bg-gradient-to-br from-[#fafafa] via-white to-[#fafffb] dark:bg-brand-navy dark:from-brand-navy dark:via-brand-navy dark:to-brand-navy',
   }
 
   const patternColors = {

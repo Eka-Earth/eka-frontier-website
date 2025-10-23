@@ -69,7 +69,7 @@
         >
           {#snippet title()}
             <h3
-              class="text-2xl font-bold text-white mb-3 group-hover:text-eka-sage transition-all duration-300"
+              class="text-2xl font-bold text-white mb-3 group-hover:text-brand-sage transition-all duration-300"
             >
               {model.title}
             </h3>
@@ -91,7 +91,7 @@
             >
               {#each model.highlights as highlight (highlight)}
                 <div class="flex items-center">
-                  <div class="w-1.5 h-1.5 bg-eka-primary rounded-full mr-2"></div>
+                  <div class="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2"></div>
                   <span class="text-sm text-gray-400">{highlight}</span>
                 </div>
               {/each}

@@ -24,7 +24,7 @@
             services.
           </p>
           <p class="text-gray-300">
-            Contact: <a href="mailto:legal@ekafrontier.io" class="text-eka-accent hover:underline"
+            Contact: <a href="mailto:legal@ekafrontier.io" class="text-brand-accent hover:underline"
               >legal@ekafrontier.io</a
             >
           </p>
@@ -106,7 +106,7 @@
           <p class="text-gray-300">
             To exercise these rights, contact <a
               href="mailto:legal@ekafrontier.io"
-              class="text-eka-accent hover:underline">legal@ekafrontier.io</a
+              class="text-brand-accent hover:underline">legal@ekafrontier.io</a
             >
           </p>
         </section>
@@ -147,7 +147,7 @@
           <div class="text-gray-300">
             <p class="font-semibold mb-2">Eka Frontier</p>
             <p>
-              Email: <a href="mailto:legal@ekafrontier.io" class="text-eka-accent hover:underline"
+              Email: <a href="mailto:legal@ekafrontier.io" class="text-brand-accent hover:underline"
                 >legal@ekafrontier.io</a
               >
             </p>

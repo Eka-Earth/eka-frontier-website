@@ -85,15 +85,15 @@
         {#snippet title()}
           <h3
             class="text-lg font-medium {hoveredIndex === index
-              ? 'text-eka-primary'
-              : 'text-eka-primary-dark'} transition-colors"
+              ? 'text-brand-primary dark:text-brand-primary-light'
+              : 'text-brand-primary-dark dark:text-white'} transition-colors"
           >
             {factor.title}
           </h3>
         {/snippet}
 
         {#snippet description()}
-          <p class="text-sm text-gray-600 leading-relaxed">{factor.description}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{factor.description}</p>
         {/snippet}
       </Card>
     {/each}

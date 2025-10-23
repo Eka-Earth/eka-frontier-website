@@ -17,7 +17,7 @@
 </script>
 
 <div
-  class="fixed inset-0 bg-white z-[55] transition-opacity duration-300 {isOpen
+  class="fixed inset-0 bg-white dark:bg-brand-navy z-[55] transition-opacity duration-300 {isOpen
     ? 'opacity-100 pointer-events-auto'
     : 'opacity-0 pointer-events-none'}"
   role="dialog"
@@ -44,7 +44,7 @@
       {#each items as item, index (item.id || item.label)}
         <button
           onclick={item.onClick}
-          class="block text-left text-3xl sm:text-4xl lg:text-5xl font-medium text-eka-primary-dark hover:text-eka-primary transition-all duration-300 hover:translate-x-2"
+          class="block text-left text-3xl sm:text-4xl lg:text-5xl font-medium text-brand-primary-dark dark:text-white hover:text-brand-primary dark:hover:text-brand-primary-light transition-all duration-300 hover:translate-x-2"
           style="transition-delay: {isOpen ? index * 0.05 : 0}s; opacity: {isOpen
             ? 1
             : 0}; transform: translateY({isOpen ? 0 : 20}px);"
@@ -56,7 +56,7 @@
 
     {#if footer}
       <div
-        class="pt-8 mt-8 border-t border-gray-200 transition-all duration-300"
+        class="pt-8 mt-8 border-t border-gray-200 dark:border-white/10 transition-all duration-300"
         style="transition-delay: {isOpen ? items.length * 0.05 : 0}s; opacity: {isOpen
           ? 1
           : 0}; transform: translateY({isOpen ? 0 : 20}px);"

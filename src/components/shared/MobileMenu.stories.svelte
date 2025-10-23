@@ -48,7 +48,7 @@
       {#snippet footer()}
         <a
           href="mailto:contact@ekafrontier.io"
-          class="text-lg text-gray-600 hover:text-eka-primary transition-colors"
+          class="text-lg text-gray-600 dark:text-gray-300 hover:text-brand-primary transition-colors"
         >
           contact@ekafrontier.io
         </a>
@@ -64,13 +64,13 @@
         <div class="space-y-3">
           <a
             href="mailto:contact@ekafrontier.io"
-            class="block text-lg text-gray-600 hover:text-eka-primary transition-colors"
+            class="block text-lg text-gray-600 dark:text-gray-300 hover:text-brand-primary transition-colors"
           >
             contact@ekafrontier.io
           </a>
           <a
             href="https://linkedin.com"
-            class="block text-sm text-gray-500 hover:text-eka-primary transition-colors"
+            class="block text-sm text-gray-500 dark:text-gray-400 hover:text-brand-primary transition-colors"
           >
             LinkedIn
           </a>

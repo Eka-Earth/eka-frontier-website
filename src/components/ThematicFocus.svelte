@@ -122,15 +122,15 @@
         hoverable={false}
       >
         {#snippet title()}
-          <h3 class="text-xl font-bold text-eka-primary-dark flex-1">{theme.title}</h3>
+          <h3 class="text-xl font-bold text-brand-primary-dark dark:text-white flex-1">{theme.title}</h3>
         {/snippet}
 
         {#snippet expandedContent()}
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
             <span class="font-semibold">Thesis:</span>
             {theme.thesis}
           </p>
-          <p class="text-sm text-gray-700 leading-relaxed">
+          <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             <span class="font-semibold">Focus:</span>
             {theme.focus}
           </p>

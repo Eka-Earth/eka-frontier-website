@@ -23,12 +23,12 @@
   const variantClasses = $derived(
     {
       primary:
-        'bg-eka-primary text-white hover:bg-eka-primary-dark active:bg-eka-primary-dark active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
+        'bg-brand-primary dark:bg-brand-primary-light text-white hover:bg-brand-primary-dark dark:hover:bg-brand-primary active:bg-brand-primary-dark dark:active:bg-brand-primary active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
       outline:
-        'border-2 border-white text-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98] backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed',
-      text: 'text-gray-600 hover:text-eka-primary active:text-eka-primary-dark disabled:opacity-50 disabled:cursor-not-allowed',
+        'border-2 border-white dark:border-brand-sage text-white dark:text-brand-sage hover:bg-white/10 dark:hover:bg-brand-sage/10 active:bg-white/20 dark:active:bg-brand-sage/20 active:scale-[0.98] backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed',
+      text: 'text-gray-600 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-primary-light active:text-brand-primary-dark dark:active:text-brand-primary disabled:opacity-50 disabled:cursor-not-allowed',
       ghost:
-        'text-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
+        'text-white dark:text-gray-300 hover:bg-white/10 dark:hover:bg-white/5 active:bg-white/20 dark:active:bg-white/10 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed',
     }[variant]
   )
 

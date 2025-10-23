@@ -28,8 +28,8 @@
 
 {#snippet lightThemeTemplate(args)}
   <Card {...args}>
-    <h3 class="text-xl font-bold text-eka-primary-dark mb-3">Strategic Excellence</h3>
-    <p class="text-gray-700">
+    <h3 class="text-xl font-bold text-brand-primary-dark dark:text-white mb-3">Strategic Excellence</h3>
+    <p class="text-gray-700 dark:text-gray-300">
       Expertise in commercial frameworks, market entry, and business architecture.
     </p>
   </Card>
@@ -50,8 +50,8 @@
 
 {#snippet noIconTemplate(args)}
   <Card {...args}>
-    <h3 class="text-xl font-bold text-eka-primary-dark mb-3">Simple Card</h3>
-    <p class="text-gray-700">A card without an icon.</p>
+    <h3 class="text-xl font-bold text-brand-primary-dark dark:text-white mb-3">Simple Card</h3>
+    <p class="text-gray-700 dark:text-gray-300">A card without an icon.</p>
   </Card>
 {/snippet}
 

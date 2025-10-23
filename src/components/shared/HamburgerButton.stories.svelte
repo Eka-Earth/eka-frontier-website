@@ -20,7 +20,7 @@
 </script>
 
 {#snippet template(args)}
-  <div class="p-8 {args.color === 'light' ? 'bg-eka-primary-dark' : 'bg-white'} inline-block">
+  <div class="p-8 {args.color === 'light' ? 'bg-brand-primary-dark' : 'bg-white'} inline-block">
     <HamburgerButton {...args} />
   </div>
 {/snippet}

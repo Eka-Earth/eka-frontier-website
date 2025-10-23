@@ -21,8 +21,8 @@
 {#snippet lightTemplate(args)}
   <SectionContainer {...args}>
     <div class="text-center">
-      <h2 class="text-3xl font-bold text-eka-primary-dark">Light Background Section</h2>
-      <p class="text-gray-700 mt-4">This is a section container with a light background.</p>
+      <h2 class="text-3xl font-bold text-brand-primary-dark dark:text-white">Light Background Section</h2>
+      <p class="text-gray-700 dark:text-gray-300 mt-4">This is a section container with a light background.</p>
     </div>
   </SectionContainer>
 {/snippet}
@@ -48,8 +48,8 @@
 {#snippet gradientTemplate(args)}
   <SectionContainer {...args}>
     <div class="text-center">
-      <h2 class="text-3xl font-bold text-eka-primary-dark">Gradient Background Section</h2>
-      <p class="text-gray-700 mt-4">
+      <h2 class="text-3xl font-bold text-brand-primary-dark dark:text-white">Gradient Background Section</h2>
+      <p class="text-gray-700 dark:text-gray-300 mt-4">
         This is a section container with a gradient background from light to mint.
       </p>
     </div>

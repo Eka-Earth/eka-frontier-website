@@ -53,14 +53,14 @@
 
   const bgClasses = $derived(
     theme === 'dark'
-      ? 'bg-eka-navy/50 backdrop-blur-sm border-white/10 hover:border-white/30 active:border-white/40'
-      : 'bg-white border-gray-200 hover:border-eka-primary/30 active:border-eka-primary/40'
+      ? 'bg-brand-navy/50 dark:bg-brand-navy/70 backdrop-blur-sm border-white/10 dark:border-white/20 hover:border-white/30 dark:hover:border-white/40 active:border-white/40 dark:active:border-white/50'
+      : 'bg-white dark:bg-brand-navy/50 border-gray-200 dark:border-white/10 hover:border-brand-primary/30 dark:hover:border-white/30 active:border-brand-primary/40 dark:active:border-white/40'
   )
 
   const iconBgClasses = {
-    primary: 'bg-eka-primary',
-    'primary-light': 'bg-eka-primary/10',
-    white: 'bg-white',
+    primary: 'bg-brand-primary dark:bg-brand-primary-light',
+    'primary-light': 'bg-brand-primary/10 dark:bg-brand-primary-light/20',
+    white: 'bg-white dark:bg-brand-navy/50',
   }
 
   const iconSizeClasses = {
@@ -69,7 +69,7 @@
     lg: 'w-10 h-10',
   }
 
-  const iconColor = $derived(iconBg === 'white' ? 'text-eka-primary' : 'text-white')
+  const iconColor = $derived(iconBg === 'white' ? 'text-brand-primary' : 'text-white')
 
   const hoverClasses = $derived(() => {
     const classes = []
@@ -102,7 +102,7 @@
 
   const roundedClasses = $derived(variant === 'edge' ? 'rounded-xl' : 'rounded-2xl')
 
-  const inlineIconClasses = $derived(theme === 'light' ? 'text-eka-primary' : 'text-white')
+  const inlineIconClasses = $derived(theme === 'light' ? 'text-brand-primary' : 'text-white')
 </script>
 
 <div
@@ -139,7 +139,7 @@
       <!-- Thematic card variant with image header and expandable content -->
       {#if image}
         <div
-          class="relative h-48 overflow-hidden bg-gradient-to-br from-eka-primary/10 to-eka-accent/10"
+          class="relative h-48 overflow-hidden bg-gradient-to-br from-brand-primary/10 to-brand-primary/20 dark:from-brand-primary-light/20 dark:to-brand-primary-light/30"
         >
           <img
             src={image}
@@ -157,11 +157,11 @@
           <div class="flex items-start flex-1">
             {#if icon}
               <div
-                class="p-3 bg-eka-primary/10 rounded-xl mr-4 flex-shrink-0 group-hover:bg-eka-primary/20 transition-colors"
+                class="p-3 bg-brand-primary/10 dark:bg-brand-primary-light/20 rounded-xl mr-4 flex-shrink-0 group-hover:bg-brand-primary/20 dark:group-hover:bg-brand-primary-light/30 transition-colors"
               >
                 <svelte:component
                   this={icon}
-                  class="{iconSizeClasses[iconSize]} text-eka-primary"
+                  class="{iconSizeClasses[iconSize]} text-brand-primary dark:text-brand-primary-light"
                 />
               </div>
             {/if}
@@ -171,7 +171,7 @@
           </div>
           {#if onToggle}
             <button
-              class="w-8 h-8 rounded-lg hover:bg-gray-100 transition-all flex items-center justify-center ml-4 text-gray-400 hover:text-eka-primary font-mono"
+              class="w-8 h-8 rounded-lg hover:bg-brand-primary/10 dark:hover:bg-brand-primary-light/20 transition-all flex items-center justify-center ml-4 text-gray-500 dark:text-gray-400 hover:text-brand-primary font-mono"
               onclick={onToggle}
               aria-label="Toggle details"
             >
@@ -240,7 +240,7 @@
   {#if accentLine}
     <!-- Bottom accent line -->
     <div
-      class="absolute bottom-0 left-0 right-0 h-0.5 bg-eka-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+      class="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
     ></div>
   {/if}
 </div>

@@ -69,13 +69,13 @@
               <br />
             {/if}
             {#if titleHighlight}
-              <span class="text-eka-sage">{titleHighlight}</span>
+              <span class="text-brand-sage">{titleHighlight}</span>
             {/if}
           </h1>
         {/if}
 
         {#if description}
-          <p class="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-8">
+          <p class="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-8">
             {description}
           </p>
         {/if}

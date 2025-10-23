@@ -8,7 +8,7 @@
   let { isOpen = false, color = 'dark', onclick }: Props = $props()
 
   const colorClasses = {
-    dark: 'bg-eka-primary-dark',
+    dark: 'bg-brand-primary-dark',
     light: 'bg-white',
   }
 </script>
