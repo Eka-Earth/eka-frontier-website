@@ -32,7 +32,15 @@
     if (link.onClick) {
       link.onClick()
     } else if (link.sectionId) {
-      document.getElementById(link.sectionId)?.scrollIntoView({ behavior: 'smooth' })
+      // If we're on privacy policy page, go home first
+      if (window.location.hash === '#privacy-policy') {
+        window.dispatchEvent(new CustomEvent('navigate-home'))
+        setTimeout(() => {
+          document.getElementById(link.sectionId!)?.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      } else {
+        document.getElementById(link.sectionId)?.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }
 </script>
