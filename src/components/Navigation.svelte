@@ -4,6 +4,7 @@
   import MobileMenu from './shared/MobileMenu.svelte'
   import ThemeToggle from './shared/ThemeToggle.svelte'
   import type { MenuItem } from './shared/MobileMenu.svelte'
+  import { siteConfig } from '../config/site'
 
   let isOpen = $state(false)
   let scrolled = $state(false)
@@ -135,10 +136,10 @@
 <MobileMenu {isOpen} items={menuItems}>
   {#snippet footer()}
     <a
-      href="mailto:contact@ekafrontier.io"
+      href="mailto:{siteConfig.contact.email}"
       class="text-lg text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors"
     >
-      contact@ekafrontier.io
+      Contact
     </a>
   {/snippet}
 </MobileMenu>
