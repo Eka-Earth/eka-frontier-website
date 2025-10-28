@@ -6,11 +6,17 @@
  */
 
 export const siteConfig = {
+  site: {
+    url: import.meta.env.VITE_SITE_URL || 'https://ekafrontier.io',
+    title: 'Ekafrontier',
+    description:
+      'Partnering with frontier organisations to architect, grow, and scale digital rails for tomorrow\'s resilient, regenerative economy.',
+  },
   contact: {
-    email: import.meta.env.VITE_CONTACT_EMAIL || 'contact@ekafrontier.io',
+    email: import.meta.env.VITE_CONTACT_EMAIL || 'crystal@ekafrontier.io',
   },
   social: {
-    linkedin: import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com/company/ekafrontier',
+    linkedin: import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/crystal-ma-lee',
   },
   company: {
     name: import.meta.env.VITE_COMPANY_NAME || 'Eka Frontier',
