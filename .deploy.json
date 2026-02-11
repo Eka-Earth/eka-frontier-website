@@ -1,0 +1,7 @@
+{
+  "zone": "nullispl",
+  "domain": "ekafrontier.io",
+  "build_type": "vite",
+  "build_command": "pnpm install --frozen-lockfile && pnpm build",
+  "output_dir": "dist"
+}
