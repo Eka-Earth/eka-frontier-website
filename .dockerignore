@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.github
+.direnv
+.svelte-kit
+storybook-static
+screenshots
+*.md
+*.log
+.env*
